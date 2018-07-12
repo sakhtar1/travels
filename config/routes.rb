@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 	resources :countries
 
  	resources :visits, only: [:show]
+ 	resources :settings, only: [:index]
  	get '/' => 'countries#index'
 
 end

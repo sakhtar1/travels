@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     has_many :visits
 	has_many :countries, through: :visits
 
+
 	 #def user_capitalize
 	 # 	name.capitalize!
 	 #end
