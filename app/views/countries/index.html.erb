@@ -1,6 +1,5 @@
-<ol><% @country.visits.each do |visit| %>
-	<%= visit.countries.current_user %>
-	<li><%#= link_to @user.country, country %></li>
+<ol><% @countries.each do |country| %>
+	<li><%= link_to country.country, country %></li>
 <%end %></ol>
 
 
