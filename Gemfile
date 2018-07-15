@@ -62,6 +62,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'omniauth-twitter'
-gem 'omniauth-facebook'
+#gem 'omniauth-facebook'
 gem 'omniauth-amazon'
 gem 'omniauth-github'
