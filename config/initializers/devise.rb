@@ -261,9 +261,10 @@ Devise.setup do |config|
 
   #config.omniauth :facebook, ENV["215250742402601"], ENV["FACEBOOK_CONSUMER_SECRET"], callback_url: "http://localhost:3000/users/auth/facebook/callback"
   config.omniauth :amazon, 'amzn1.application-oa2-client.2a6755ca4d274d0885f00efb0ac92a5f', 'cf708fd08810f94fbfd85824ac9ebbff76a6ea0d2d9e5cd1f1e7919de4f48603'
+ 
   config.omniauth :github, '97267921d7687e2aff9c', '68c378cd9bbc34e1c81797db0c117c61052ec9e1'
 
-
+  provider_ignores_state = false
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

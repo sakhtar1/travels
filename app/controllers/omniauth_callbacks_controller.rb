@@ -6,7 +6,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 			flash.notice = "Signed in!"
 			sign_in_and_redirect @user
 		else
-			flash[:notice] = "You try again"
+			flash[:notice] = "Try again"
 			redirect_to new_user_session_path
 		end
 		#
@@ -18,7 +18,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 			flash.notice = "Signed in!"
 			sign_in_and_redirect @user
 		else
-			flash[:notice] = "You try again"
+			flash[:notice] = "Try again"
 			redirect_to new_user_session_path
 		end
 		#
@@ -30,7 +30,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 			flash.notice = "Signed in!"
 			sign_in_and_redirect @user
 		else
-			flash[:notice] = "You try again"
+			flash[:notice] = "Try again"
 			redirect_to new_user_session_path
 		end
 		#

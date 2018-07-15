@@ -28,20 +28,21 @@
           <br>
           <a href="/users/sign_in"> Sign In </a>
           <br>
-          <%= link_to "Sign in with Github", user_github_omniauth_authorize_path%>
-          <br>
-           <%= link_to "Sign in with Twitter", user_twitter_omniauth_authorize_path%>
-          <br>
-           <%= link_to "Sign in with Amazon", user_amazon_omniauth_authorize_path%>
-          <br>
+          <div class="button">
+            <%= link_to(image_tag("https://png.icons8.com/ios-glyphs/50/000000/github.png"), user_github_omniauth_authorize_path) %>
+        
+            <%= link_to(image_tag("https://png.icons8.com/color/50/000000/twitter.png"), user_twitter_omniauth_authorize_path) %>
+      
+           <%= link_to(image_tag("https://png.icons8.com/color/50/000000/amazon.png"), user_amazon_omniauth_authorize_path) %>
+         </div>
+       
       <% end %>
   
    </div>
     <div class="container">
 
       <h1>Travel Door</h1>
-      <br>
-       
+
       <%=yield%>
       <br>
       <br>
