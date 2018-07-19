@@ -3,9 +3,10 @@
 <h5> Cities you toured: <%= @country.city%></h5>
 <p>Places you visited: <%= @country.description%></p>
 
-<%# @country.visits.each do |visit| %>
-    Name: <%#= link_to visit.user.name, user_path(visit.user) %>
+<% @country.visits.each do |visit| %>
+    Name: <%= link_to visit.user.email, user_path(visit.user) %>
+    <%= visit.visit_date %>
     <br>
-  <%# end %>
+  <% end %>
 
 <h5>To edit click<a href="/countries/edit"> here! </a></h5>

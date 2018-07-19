@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_12_075941) do
+ActiveRecord::Schema.define(version: 2018_07_17_211304) do
 
   create_table "countries", force: :cascade do |t|
     t.string "continent"
     t.string "country"
     t.string "city"
     t.text "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -33,6 +35,8 @@ ActiveRecord::Schema.define(version: 2018_07_12_075941) do
     t.string "name"
     t.string "provider"
     t.string "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -40,6 +44,9 @@ ActiveRecord::Schema.define(version: 2018_07_12_075941) do
   create_table "visits", force: :cascade do |t|
     t.integer "country_id"
     t.integer "user_id"
+    t.datetime "visit_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

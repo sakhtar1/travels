@@ -1,0 +1,5 @@
+<h2><%= @user.email %> </h2> 
+ 
+<% @user.countries.each do |country| %>
+  <%= link_to country.country, country_path(country) %>
+<% end %>

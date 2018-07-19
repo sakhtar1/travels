@@ -1,7 +1,8 @@
 
 class VisitsController < ApplicationController
 	
-  def index
+  def show
+  	@visit = Visit.find(params[:id])
   end
 
 end

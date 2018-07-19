@@ -2,7 +2,7 @@ class CountriesController < ApplicationController
   before_action :set_country, only: [:index, :show, :edit, :update, :destroy]
 
 	def index
-    @user = current_user
+    user = current_user
     @countries = Country.all
   end
 
