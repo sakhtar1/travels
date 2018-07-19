@@ -14,11 +14,14 @@
 
       <div class="container">
       <% if current_user %>
+      <a href="/continents"> Continents </a>
+      <br>
        <a href="/countries"> Countries </a>
        <br>
-       <a href="/visits">Visits</a>
+       <a href="/countries/visits">Visits</a>
        <br>
        <a href="/settings">Account Settings</a>
+
        <br>
       <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
       <p>Hello, <%=current_user.name_case%>!</p>
@@ -36,13 +39,10 @@
       
            <%= link_to(image_tag("https://png.icons8.com/color/50/000000/amazon.png"), user_amazon_omniauth_authorize_path) %>
          </div>
-       
       <% end %>
-  
    </div>
     <div class="container">
-
-      <h1>Travel Door</h1>
+      <h2>Travel Door</h2>
 
       <%=yield%>
       <br>

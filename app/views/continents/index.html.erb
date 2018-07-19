@@ -1,0 +1,12 @@
+<h3> Continents </h3>
+<ol><% @continents.each do |continent| %>
+	<li><%= link_to continent.name, continent %></li>
+<%end %></ol>
+<br>
+<%= image_tag("http://almasalah.com/MediaStorage/GalleryImages/106304.jpg?width=750&&height=375", :alt => "rss feed") %>
+<br>
+<br>
+<p>For countries home page click <a href="/countries">here! </a></p>
+<p>To log in the countries you've visited click<a href="/countries/new"> here! </a></p>
+<p>To log in the countries and cities you want to visit click here! </a></p>
+

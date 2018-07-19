@@ -33,10 +33,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 			flash[:notice] = "Try again"
 			redirect_to new_user_session_path
 		end
-		#
+		
 	end
 
-	#alias_method :github, :twitter, :amazon, :all
 
 
 end

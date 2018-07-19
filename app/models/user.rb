@@ -8,10 +8,6 @@ class User < ActiveRecord::Base
     has_many :visits
 	has_many :countries, through: :visits
 
-
-
-	#before_validation :make_name_case
-	#validate :make_name_case
 	validates_presence_of :name
 
 
