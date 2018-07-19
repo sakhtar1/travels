@@ -10,7 +10,7 @@ class Visit < ActiveRecord::Base
 #order all visit.countries by timing in desc
 
 	def self.countvisit_order
-		Visit.distinct.count('visit_date desc')
+		Visit.distinct.count('visit_date')
 	end
 
 	def visit_country=(id)
