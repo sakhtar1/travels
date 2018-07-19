@@ -7,6 +7,7 @@ class CountriesController < ApplicationController
   end
 
   def show
+    @visit = current_user.visits
   end
 
   def new

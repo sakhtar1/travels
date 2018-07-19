@@ -1,6 +1,6 @@
 class Visit < ActiveRecord::Base
-    belongs_to :user
-	belongs_to :country
+      belongs_to :user, required: false
+    belongs_to :country, required: false
 
 	scope :countvisit, -> { count('visit_date', :distinct => true) }
 	
@@ -16,5 +16,6 @@ class Visit < ActiveRecord::Base
 	def visit_country=(id)
 		self.country_id = id
 	end
+
 
 end
