@@ -19,7 +19,7 @@
        <a href="/countries"> Countries </a>
        <br>
        <%#= link_to "Visits", country_visit_path %>
-       <br>
+  
        <a href="/settings">Account Settings</a>
 
        <br>
@@ -32,12 +32,14 @@
           <a href="/users/sign_in"> Log In </a>
           <br>
           <div class="button">
-            <%= link_to(image_tag("https://png.icons8.com/ios-glyphs/50/000000/github.png"), user_github_omniauth_authorize_path) %>
+            <%= link_to "Google", user_google_oauth2_omniauth_authorize_path %>
+
+            <%#= link_to(image_tag("https://png.icons8.com/ios-glyphs/50/000000/github.png"), user_github_omniauth_authorize_path) %>
         
-            <%= link_to(image_tag("https://png.icons8.com/color/50/000000/twitter.png"), user_twitter_omniauth_authorize_path) %>
+            <%#= link_to(image_tag("https://png.icons8.com/color/50/000000/twitter.png"), user_twitter_omniauth_authorize_path) %>
 
       
-           <%= link_to(image_tag("https://png.icons8.com/color/50/000000/amazon.png"), user_amazon_omniauth_authorize_path) %>
+           <%#= link_to(image_tag("https://png.icons8.com/color/50/000000/amazon.png"), user_amazon_omniauth_authorize_path) %>
          </div>
       <% end %>
    </div>

@@ -3,12 +3,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:github, :twitter, :amazon]
+         :omniauthable, omniauth_providers: [:google_oauth2]
         
     has_many :visits
 	has_many :countries, through: :visits
 
-	validates_presence_of :name
+	validates_presence_of :email
 
 
 	  
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   	 end
 
 	def name_case
-     	name.capitalize
+     	email.capitalize
  	end
 
 end
