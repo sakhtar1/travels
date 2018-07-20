@@ -1,4 +1,5 @@
-<%= @visit.id %>
-<%= @visit.visit_date %>
-<%= @visit.user.name %>
-<%= link_to @visit.country.country, country_visit_path %>
+
+<h4><%= @visit.id %></h4>
+<h4><%= @visit.visit_date.strftime("%B %d, %Y") %></h4>
+<h4><%= @visit.user.name %></h4>
+<h4><%= link_to @visit.country.country, country_path %></h4>

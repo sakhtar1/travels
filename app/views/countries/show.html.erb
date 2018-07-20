@@ -1,9 +1,9 @@
 <% @country.visits.each do |visit| %>
     Name: <%=visit.user.name_case%>
     <br>
-    Travel date: <%= link_to visit.visit_date, country_path %>
+    Travel date: <%= link_to visit.visit_date.strftime("%B %d, %Y"), visit_path %>
     <br>
-    Travel Count: <%#= countvisit_order %>
+    Times travelled to country: <%= current_user.visits.count %>
     <br
   <% end %>
 

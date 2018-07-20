@@ -9,13 +9,14 @@ class User < ActiveRecord::Base
 	has_many :countries, through: :visits
 
 	validates_presence_of :email
+	validates_presence_of :name
 
 
 	  
 
 	 def self.from_omniauth(auth)
 	      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-	
+			user.name = auth.info.name
 	        user.provider = auth.provider
 	        user.uid = auth.uid
 	        user.email = auth.info.email
