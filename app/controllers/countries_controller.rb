@@ -12,6 +12,8 @@ class CountriesController < ApplicationController
 
   def new
       @country = Country.new
+      @visit = Visit.new
+      visits = Visit.all
   end
 
   def create
