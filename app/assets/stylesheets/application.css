@@ -17,10 +17,22 @@
 @import "bootstrap";
 
 body {
-  padding-top: 30px;
+  padding-top: 80px;
   padding-bottom: 30px;
+  background-color:#E0FFFF;
+  background-image:url(http://www.tinebech.com/rw_common/themes/flood/images/editable_images/body-radial-left.png); 
+  background-size: cover;
+  font-family: Helvetica, Garamond, sans-serif; 
+  color: #40404
 }
 
-.button {
-	
+.navbar-header {
+	padding: 0px;
 }
+
+
+
+
+
+
+
