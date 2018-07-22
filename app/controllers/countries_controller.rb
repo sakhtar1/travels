@@ -7,19 +7,18 @@ class CountriesController < ApplicationController
   end
 
   def show
-    @visit = current_user.visits
+    @visit = @country.visits.build
   end
 
   def new
       @country = Country.new
-      @visit = Visit.new
-      visits = Visit.all
+      
   end
 
   def create
     @country = Country.new(country_params)
       if @country.save
-        redirect_to @country, notice: 'Visit was successfully created.' 
+        redirect_to @country, notice: 'Country was successfully created.' 
       else
      	render :new 
       end
