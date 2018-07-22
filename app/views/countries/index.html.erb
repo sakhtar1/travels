@@ -1,8 +1,10 @@
 <h2 class= 'title'> Countries Travelled </h2>
+
 <ol><% @user.countries.each do |country| %>
-	<li><%= link_to country.country, country %></li>
+	
+	<li><%= link_to country.name, country %></li>
 <%end %></ol>
 
 
-<h5>To log in the countries you've visited click<a href="/countries/new"> here! </a></h5>
+<h5>Log a New<a href="/countries/new"> Country. </a></h5>
 <h5> Go to <a href="/continents"> Continents. </a></h5>

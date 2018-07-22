@@ -3,7 +3,8 @@ class CountriesController < ApplicationController
 
 	def index
     @user = current_user
-    countries = Country.all
+    countries = Country.all  
+    #binding.pry
   end
 
   def show
@@ -11,17 +12,18 @@ class CountriesController < ApplicationController
   end
 
   def new
-      @country = Country.new
-      
+      @country = Country.new 
+
   end
 
   def create
-    @country = Country.new(country_params)
+    @country = current_user.countries.build(country_params)
+    current_user.save
+    
       if @country.save
         redirect_to @country, notice: 'Country was successfully created.' 
       else
-        @country = Country.all
-     	  render :index, notice: "Country was not successfully saved"
+     	  render :new, notice: "Country was not successfully saved"
       end
     
   end
@@ -52,7 +54,7 @@ class CountriesController < ApplicationController
     def country_params
       params.require(:country).permit(
         :continent,
-        :country,
+        :name,
         :city,
         :description
         )

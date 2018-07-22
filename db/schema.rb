@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2018_07_22_174315) do
 
   create_table "countries", force: :cascade do |t|
     t.string "continent"
-    t.string "country"
+    t.string "name"
     t.string "city"
     t.text "description"
     t.datetime "created_at"
