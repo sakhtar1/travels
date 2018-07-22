@@ -2,27 +2,40 @@
  <h4>Continent: <%= @country.continent%></h4>
 <h5> Country: <%= @country.country%> </h5>
 <h5> Cities you toured: <%= @country.city%></h5>
-<p>Places you visited: <%= @country.description%></p>
+<p>What did you do while there? <%= @country.description%></p>
 
 <br>
 
 <%= form_for([@country, @visit]) do |f| %>
 	<form action='/countries' method='POST'>
+		<%= f.label :'Additional places visited:' %>
+	  <br>
+	  <%= f.text_field :visit_places%>
+	  <br>
+	  <br>
 	 <%= f.label :'When was your visit?' %>
 	  <br>
 	  <%= f.date_select :visit_date, :discard_hours => true%>
 	  <br>
 	  <br>
-	  <%= f.submit "Submit" %>
+	  <%= f.submit "Add" %>
 <% end %>
-
 <br>
 <br>
 
-<% @country.visits.each do |visit| %>
-    Travel date: <%= visit.visit_date%>
+<p><% @country.visits.each do |visit| %>
+	Place Visited: <%= visit.visit_places %>
+		<br>
+    Travel Date: <%= visit.visit_date%>
     <br>
-  <% end %>
+    <br>
+  <% end %></p>
+
+   <%#= form_tag(country_visit_path(@visit.country, @visit), :method=> :delete) do %>
+
+		<%#button type="submit" class="destroy"></button>
+	<#%end%>
+ 
 
 <br>
 

@@ -19,7 +19,7 @@
 user = User.create(:name => 'Bilkis', :email => 'bilkis@b.com', :password => 'bilkis') 
 germany = Country.create(:country => 'Germany', continent: 'Europe', city: 'Berlin', description: 'Berlin Wall')
 
-user.visits.create(:visit_date => 'September', :country => germany)
+#user.visits.create(:visit_date => 'September', :country => germany)
 
 
 Continent.create(name:'North America', description:"South America is a continent located in the Western Hemisphere, mostly in the Southern Hemisphere, with a relatively small portion in the Northern Hemisphere. It may also be considered a subcontinent of the Americas, which is how it is viewed in the Spanish and Portuguese-speaking regions of the Americas.")

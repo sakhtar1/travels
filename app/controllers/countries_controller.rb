@@ -20,7 +20,8 @@ class CountriesController < ApplicationController
       if @country.save
         redirect_to @country, notice: 'Country was successfully created.' 
       else
-     	render :new 
+        @country = Country.all
+     	  render :index, notice: "Country was not successfully saved"
       end
     
   end
