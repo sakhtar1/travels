@@ -1,0 +1,14 @@
+<%= form_for([@country, @visit]) do |f| %>
+	<form action='/countries' method='POST'>
+		<%= f.label :'Additional places visited:' %>
+	  <br>
+	  <%= f.text_field :visit_places%>
+	  <br>
+	  <br>
+	 <%= f.label :'When was your visit?' %>
+	  <br>
+	  <%= f.date_select :visit_date, :discard_hours => true%>
+	  <br>
+	  <br>
+	  <%= f.submit "Add" %>
+<% end %>

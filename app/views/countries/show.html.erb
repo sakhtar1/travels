@@ -1,48 +1,20 @@
 
- <h4>Continent: <%= @country.continent%></h4>
-<h5> Country: <%= @country.name%> </h5>
+ <h4> <%= @country.continent%></h4>
+<h5> Country Visited: <%= @country.name%> </h5>
 <h5> Cities you toured: <%= @country.city%></h5>
-<h5>What did you do while there? <%= @country.description%></h5>
+<h5>Description: <%= @country.description%></h5>
 
 <br>
 
-<%= form_for([@country, @visit]) do |f| %>
-	<form action='/countries' method='POST'>
-		<%= f.label :'Additional places visited:' %>
-	  <br>
-	  <%= f.text_field :visit_places%>
-	  <br>
-	  <br>
-	 <%= f.label :'When was your visit?' %>
-	  <br>
-	  <%= f.date_select :visit_date, :discard_hours => true%>
-	  <br>
-	  <br>
-	  <%= f.submit "Add" %>
-<% end %>
+<%= render "visits/form" %>
 <br>
-<br>
-
-<h5><% @country.visits.each do |visit| %>
-	Place Visited: <%= visit.visit_places %>
-		<br>
-    Travel Date: <%= visit.visit_date%>
-    <br>
-    <%#= button_to "Delete", country_visit_path(@visit.country), @visit, :method => :delete %>
-    <br>
-  <% end %></h5>
-   
-
-   <%#= form_tag(country_visit_path(@visit.country, @visit), :method=> :delete) do %>
-
-		<%#button type="submit" class="destroy"></button>
-	<#%end%>
- 
-
+<%= render "visits/countryvisit" %>
+<%# DELETING VISIT %>
+<%#= button_to "Delete", country_visit_path(@visit.country, @visit), :method => :delete %>
 <br>
 
  <%= button_to "Edit", edit_country_path %>
-<h5><%#<a href="/countries/edit"> Edit</a></h5>%>
-
+<%#= button_to "Edit", href="/countries/:id/edit" %>
+<br>
  <%= button_to "Delete", @country, :method => :delete %>
 

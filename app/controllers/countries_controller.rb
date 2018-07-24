@@ -4,19 +4,22 @@ class CountriesController < ApplicationController
 	def index
     @user = current_user
     countries = Country.all  
-    #binding.pry
   end
 
   def show
     @visit = @country.visits.build
+    
+    #@visit.user_id = current_user.id
+    #@visit.country_id = @country.id
+    #binding.pry
   end
 
   def new
       @country = Country.new 
-
   end
 
   def create
+
     @country = current_user.countries.build(country_params)
     current_user.save
     
@@ -30,20 +33,22 @@ class CountriesController < ApplicationController
 
 
   def edit
+   #binding.pry
   end
 
   def update
+     #binding.pry
      @country.update(country_params)
      if @country.save
-        redirect_to @country, notice: 'Visit was successfully updated.' 
+        redirect_to @country, notice: 'Country was successfully updated.' 
       else
-        render :edit 
+        redirect_to :edit
       end
   end
 
    def destroy
     @country.destroy
-    redirect_to countries_url, notice: 'Visit was successfully destroyed.'
+    redirect_to countries_url, notice: 'Country was successfully destroyed.'
    end
 
   private

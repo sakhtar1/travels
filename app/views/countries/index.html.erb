@@ -1,6 +1,6 @@
 <h2 class= 'title'> Countries Travelled </h2>
 
-<ol><% @user.countries.each do |country| %>
+<ol><% @user.countries.uniq.each do |country| %>
 	
 	<li><%= link_to country.name, country %></li>
 <%end %></ol>
