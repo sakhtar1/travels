@@ -1,6 +1,6 @@
 
 class VisitsController < ApplicationController
-  before_action :set_visit, only: [:show, :edit, :update, :destroy]
+  before_action :set_visit, only: [:destroy]
 	
     def create
       @country = Country.find(params[:country_id])
@@ -12,35 +12,17 @@ class VisitsController < ApplicationController
       end
    end
 
-  def show
-      @country = Country.find_by(id: params[:country_id])
-      @visit = @country.visits.build
-      #@visit = current_user.visits.build
-  end
-
-
-
-  def edit    
-  end
-
-  def update
-  	@visit.update(visit_params)
-
-  	redirect_to country_path(@country)
-  end
 
   def destroy
-    @country = Country.find(params[:country_id])
-    @visits = @country.visits.find(params[:id])
-  	@visits.destroy
+  	@visit.destroy
     flash[:notice] = "Visit deleted."
-  	redirect_to country_path(@country)
+  	redirect_to country_path(@visit.country)
   end
 
   private
 
-  def set_visit
-      @visit = Visit.find_by(id: params[:id])
+    def set_visit
+      @visit = Visit.find(params[:id])
     end
   	def visit_params
   		params.require(:visit).permit(

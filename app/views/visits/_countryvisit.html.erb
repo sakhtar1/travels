@@ -1,10 +1,13 @@
 <h5><% @country.visits.each do |visit| %>
 	<% if visit.visit_places || visit.visit_date %>
-		Place Visited: <%= link_to visit.visit_places, country_visit_path(@visit.country) %>
+		Place Visited: <%= visit.visit_places %>
 			<br>
 	    Travel Date: <%= visit.visit_date%>
-	    
-    <br>
-    <br>
+	    <br>
+	    <br>
+	    <%= button_to "Delete", country_visit_path(visit.country, visit), :method => :delete, :class => "destroy" %>
+    	<br>
+    	<br>
     <% end %>
-  <% end %></h5>
+  <% end %>
+</h5>
