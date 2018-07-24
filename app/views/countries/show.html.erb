@@ -1,4 +1,3 @@
-
 <h4> <%= @country.continent%></h4>
 <h5> Country Visited: <%= @country.name%> </h5>
 <h5> Cities you toured: <%= @country.city%></h5>
@@ -12,8 +11,9 @@
 
 <br>
 
- <%= button_to "Edit Country", edit_country_path %>
+ <a href="/countries/:id/edit"> Edit Country </a>
 
+<br>
 <br>
  <%= button_to "Delete Country", @country, :method => :delete %>
 
