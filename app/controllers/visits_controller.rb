@@ -26,6 +26,11 @@ class VisitsController < ApplicationController
     redirect_to country_path(@visit.country)
   end
 
+  def visitsorder
+    @country = Country.find_by(id: params[:country_id])
+    @visit = @country.visits.ordercountries
+  end
+
 
   def destroy
     @visit.destroy

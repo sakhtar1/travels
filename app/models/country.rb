@@ -5,6 +5,10 @@ class Country < ActiveRecord::Base
 
 	validates_presence_of :name, :continent, :city
 
+
+	#scope :countvisit, -> { where('visit_places > 0') }
+
+	
 	
 	
 

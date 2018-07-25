@@ -4,7 +4,8 @@ class CountriesController < ApplicationController
   def index
     #@country = Country.new
     @user = current_user
-    @countries = Country.all  
+    @countries = Country.all 
+    #@countvisit = Country.countvisit
   end
 
   def show

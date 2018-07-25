@@ -11,7 +11,11 @@
 
 <br>
 
- <a href="/countries/:id/edit"> Edit Country </a>
+ <%= link_to "Edit Country", edit_country_path %>
+ <br>
+ <br>
+
+ <%= link_to "If you want to see each of the attraction/sights in order", visitsorder_country_visits_path(@visit.country, @visit) %>
 
 <br>
 <br>

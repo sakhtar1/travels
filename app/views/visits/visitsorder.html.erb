@@ -1,0 +1,13 @@
+
+	<% @visit.each do |v| %>
+		<% if v.visit_places || v.visit_date %>
+		Place Visited: <%= v.visit_places %>
+		<br>
+		Date: <%= v.visit_date %>
+		<br>
+		<br>
+		<% end %>
+	<% end %>
+
+	<p><a href="/countries"> Countries </a></p>
+	<p><%= link_to "Back", @country %></p>

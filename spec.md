@@ -18,7 +18,7 @@ Specs:
 - User validates_presence_of :email, :email & Country validates_presence_of :name, :continent, :city 
 
 - [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
-
+- /countries/15/visits/visitsorder << Visit.ordercountries
 
 - [x] Include signup (how e.g. Devise)
 - [x] Include login (how e.g. Devise)
