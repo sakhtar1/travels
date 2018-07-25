@@ -3,8 +3,7 @@ class VisitsController < ApplicationController
   
   def show
       @country = Country.find_by(id: params[:country_id])
-      #@visit = @country.visits.build
-      #@visit = current_user.visits.build
+
   end 
 
   def create

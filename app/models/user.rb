@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
     has_many :visits
 	has_many :countries, through: :visits
 
-	validates_presence_of :email
-	validates_presence_of :name
+	validates_presence_of :email, :email
+	
 
 
 	  
