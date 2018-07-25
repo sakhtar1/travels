@@ -1,7 +1,8 @@
 class CountriesController < ApplicationController
-  before_action :set_country, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_country, only: [:show, :edit, :update, :destroy]
 
   def index
+    #@country = Country.new
     @user = current_user
     @countries = Country.all  
   end
@@ -9,7 +10,7 @@ class CountriesController < ApplicationController
   def show
     #binding.pry
     @visit = @country.visits.build
-    @visit.save
+    
    #binding.pry
   end
 
@@ -48,7 +49,7 @@ class CountriesController < ApplicationController
 
    def destroy
     @country.destroy
-    redirect_to countries_url, notice: 'Country was successfully destroyed.'
+    redirect_to countries_url, notice: 'Country was successfully deleted.'
    end
 
   private

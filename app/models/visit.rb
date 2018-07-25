@@ -9,14 +9,14 @@ class Visit < ActiveRecord::Base
 	
 
 
-#order all visit.countries by timing in desc
+#order all visit.countries by vist date in desc
 
 	def self.ordercount_visit
 		self.order('visit_date DESC')
 	end
 
 	def visit_country=(id)
-		self.country_id = Country.id
+		Country.id = self.country_id  
 	end
 
 

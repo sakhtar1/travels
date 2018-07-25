@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   	 end
 
 	def name_case
-     	email.capitalize
+     	name.capitalize
  	end
 
 end

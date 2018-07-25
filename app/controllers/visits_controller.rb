@@ -1,7 +1,13 @@
 class VisitsController < ApplicationController
-  before_action :set_visit, only: [:destroy]
+  before_action :set_visit, only: [:show, :edit, :update, :destroy]
   
-    def create
+  def show
+      @country = Country.find_by(id: params[:country_id])
+      #@visit = @country.visits.build
+      #@visit = current_user.visits.build
+  end 
+
+  def create
       @country = Country.find(params[:country_id])
       @visit = @country.visits.build(visit_params.merge(user_id: current_user.id))
       if @visit.save
@@ -9,7 +15,17 @@ class VisitsController < ApplicationController
       else
         render "countries/show", notice: 'Unsuccessful Save'
       end
-   end
+  end
+
+  def edit
+
+  end
+
+  def update
+    @visit.update(visit_params)
+
+    redirect_to country_path(@visit.country)
+  end
 
 
   def destroy
