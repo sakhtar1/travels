@@ -17,7 +17,7 @@
 @import "bootstrap";
 
 body {
-  padding-top: 80px;
+  padding-top: 20px;
   padding-bottom: 30px;
   background-color:#E0FFFF;
   background-image:url(http://www.tinebech.com/rw_common/themes/flood/images/editable_images/body-radial-left.png); 
@@ -33,6 +33,7 @@ body {
 .image {
 	padding-top: 50px;
 	padding-left: 350px;
+	padding-bottom: 200px;
 	height: 90px;
 	width: 200px;
 }
@@ -42,7 +43,38 @@ body {
 	font-family: Helvetica, Garamond, sans-serif, bold; 
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
 
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
 
 
 
