@@ -9,10 +9,6 @@ class User < ActiveRecord::Base
 	has_many :countries, through: :visits
 
 	validates_presence_of :email, :email
-	
-
-
-	  
 
 	 def self.from_omniauth(auth)
 	      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

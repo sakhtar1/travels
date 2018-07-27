@@ -1,18 +1,13 @@
 class CountriesController < ApplicationController
   before_action :set_country, only: [:show, :edit, :update, :destroy]
 
-  def index
-    #@country = Country.new
+  def index   
     @user = current_user
     @countries = Country.all 
-    #@countvisit = Country.countvisit
   end
 
   def show
-    #binding.pry
     @visit = @country.visits.build
-    
-   #binding.pry
   end
 
   def new
@@ -20,26 +15,21 @@ class CountriesController < ApplicationController
   end
 
   def create
-
-    @country = current_user.countries.build(country_params)
-    
+    @country = current_user.countries.build(country_params) 
       if @country.save
         current_user.countries << @country
     
         redirect_to @country, notice: 'Country was successfully created.' 
       else
         render :new, notice: "Country was not successfully saved"
-      end
-    
+      end  
   end
 
 
   def edit
-   #binding.pry
   end
 
   def update
-     #binding.pry
      @country.update(country_params)
      if @country.save
         redirect_to @country, notice: 'Country was successfully updated.' 

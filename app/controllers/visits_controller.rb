@@ -3,7 +3,6 @@ class VisitsController < ApplicationController
   
   def show
       @country = Country.find_by(id: params[:country_id])
-
   end 
 
   def create
@@ -17,7 +16,6 @@ class VisitsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
