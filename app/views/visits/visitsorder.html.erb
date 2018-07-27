@@ -3,7 +3,7 @@
 		<% if v.visit_places || v.visit_date %>
 		Place Visited: <%= v.visit_places %>
 		<br>
-		Date: <%= v.visit_date %>
+		Date: <%= v.visit_date.strftime("%m/%d/%Y") %>
 		<br>
 		<br>
 		<% end %>

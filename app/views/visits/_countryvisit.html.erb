@@ -2,7 +2,7 @@
 	<% if visit.visit_places || visit.visit_date %>
 		Place Visited: <%= link_to visit.visit_places, country_visit_path(visit.country, visit) %>
 			<br>
-	    Date: <%= visit.visit_date%>
+	    Date: <%= visit.visit_date.strftime("%m/%d/%Y")%>
 	    <br>
 	    <br>
 
