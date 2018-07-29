@@ -8,6 +8,7 @@ class CountriesController < ApplicationController
 
   def show
     @visit = @country.visits.build
+    @visit.save
   end
 
   def new
