@@ -8,8 +8,9 @@ Rails.application.routes.draw do
 			end
 		end
 	end
- 	resources :settings, only: [:index]
- 	get '/' => 'travels#home'
+ 	#resources :settings, only: [:index]
+ 	get '/' => 'static#home'
+ 	get'/settings' => 'static#index'
  	resources :continents, only: [:index, :show]
 
 
