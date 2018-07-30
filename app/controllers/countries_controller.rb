@@ -22,7 +22,7 @@ class CountriesController < ApplicationController
     
         redirect_to @country, notice: 'Country was successfully created.' 
       else
-        render :new, notice: "Country was not successfully saved"
+        render :new
       end  
   end
 
@@ -35,7 +35,7 @@ class CountriesController < ApplicationController
      if @country.save
         redirect_to @country, notice: 'Country was successfully updated.' 
       else
-        redirect_to :edit
+        render :edit
       end
   end
 

@@ -9,12 +9,12 @@ class VisitsController < ApplicationController
 
   def create
       @country = Country.find(params[:country_id])
-      @visit = @country.visits.build(visit_params.merge(user_id: current_user.id))
+      @visit = @country.visits.build(visit_params)
       if @visit.save
 
-        redirect_to country_path(@country)
+        redirect_to country_path(@country), notice: 'Successful Save'
       else
-        render "countries/show", notice: 'Unsuccessful Save'
+        render @country, notice: 'Unsuccessful Save'
       end
   end
 
