@@ -1,5 +1,5 @@
 <h5><% @country.visits.each do |visit| %>
-	<% if visit.visit_places %>
+	<% if visit.visit_places.present? %>
 
 		Place Visited: <%= link_to visit.visit_places, country_visit_path(visit.country, visit) %>
 			<br>
@@ -8,6 +8,7 @@
 	    <br>
 	    
 	    <%= button_to "Delete", country_visit_path(visit.country, visit), :method => :delete, :class => "destroy" %>
+	    
     	<br>
     	<br>
     <% end %>

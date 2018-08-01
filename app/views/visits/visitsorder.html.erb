@@ -1,6 +1,6 @@
 
 	<% @visit.each do |v| %>
-		<% if v.visit_places || v.visit_date %>
+		<% if v.visit_places.present? %>
 		Place Visited: <%= v.visit_places %>
 		<br>
 		Date: <%= v.visit_date.strftime("%m/%d/%Y") %>
