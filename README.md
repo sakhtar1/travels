@@ -2,13 +2,17 @@
 
 Travels is a travel website, that allows the user to keep track of where they want to travel and where they travelled to, sort of like a bucket list of travel sites. Users can keep track of what continent/country/city they travelled to, and places they've visited in that area. Users also get a view of interesting facts about different continents. 
 
+## Usage
+
+To use this app, just clone, bundle install, run rake db:migrate and then run rails server. Everything should be set up. Once you run the server, create your own account, and start adding your travels!
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/'sakhtar1'/travels. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+This project has been licensed under the open source [MIT License](https://opensource.org/licenses/MIT)
 
 ## Code of Conduct
 
