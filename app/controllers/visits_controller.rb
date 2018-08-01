@@ -14,7 +14,7 @@ class VisitsController < ApplicationController
 
         redirect_to country_path(@country), notice: 'Successful Save'
       else
-        render @country, notice: 'Unsuccessful Save'
+        redirect_to country_path(@country), notice: 'Unsuccessful Save'
       end
   end
 
