@@ -1,7 +1,24 @@
-<h4> <%= @country.continent%></h4>
-<h5> Country Visited: <%= @country.name%> </h5>
-<h5> Cities you toured: <%= @country.city%></h5>
-<h5>Description: <%= @country.description%></h5>
+<a href="#" class="js-next" data-id="<%=@country.id%>">Next Country</a>
+<h4 class="countryCont"> <%= @country.continent%></h4>
+<h5 class=CountryName"> Country Visited: <%= @country.name%> </h5>
+<h5 class="countryCity"> Cities you toured: <%= @country.city%></h5>
+<h5 class="Countrydescript">Description: <%= @country.description%></h5>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $(".js-next").on("click", function() {
+    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.get("/countries/" + nextId + ".json", function(data) {
+      $(".countryCont").text(data["continent"]);
+      $(".CountryName").text(data["name"]);
+      $(".countryCity").text(data["city"]);
+      $(".Countrydescript").text(data["description"]);
+      // re-set the id to current on the link
+      $(".js-next").attr("data-id", data["id"]);
+    });
+  });
+});
+</script>
 
 <br>
 

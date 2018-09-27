@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
         
     has_many :visits
 	has_many :countries, through: :visits
+	has_many :buckets
 
 	validates_presence_of :email, :name
 

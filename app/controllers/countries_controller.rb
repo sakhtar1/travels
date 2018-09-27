@@ -9,6 +9,15 @@ class CountriesController < ApplicationController
   def show
     @visit = @country.visits.build
     @visit.save
+      respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @country, status: 200}
+    end
+  end
+
+  def continent_order
+    countries = current_user.countries
+    @country = countries.continent_order
   end
 
   def new
@@ -49,6 +58,7 @@ class CountriesController < ApplicationController
     def set_country
       @country = Country.find_by(id: params[:id])
     end
+
     def country_params
       params.require(:country).permit(
         :continent,

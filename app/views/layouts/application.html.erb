@@ -5,9 +5,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
   
   </head>
 
@@ -30,6 +31,7 @@
             <% if user_signed_in? %>
               <li><a href="/continents"> Continents </a></li>
               <li><a href="/countries"> Countries </a></li>
+              <li><a href="/buckets"> Bucket List </a></li>
               <li><a href="/settings">Account Settings</a></li>
               <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %>
             <%end %>
@@ -63,6 +65,7 @@
         
       </div>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </body>
 
 </html>
