@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_27_065212) do
+ActiveRecord::Schema.define(version: 2018_09_27_135639) do
 
   create_table "buckets", force: :cascade do |t|
     t.string "continent"
     t.string "country"
     t.string "city"
     t.text "description"
+    t.integer "user_id"
+    t.integer "status", default: 0
   end
 
   create_table "continents", force: :cascade do |t|

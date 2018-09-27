@@ -14,9 +14,9 @@ class BucketsController < ApplicationController
 	end
 
 	def create
-		 @bucket = Bucket.create(bucket_params)
+		 @bucket = current_user.buckets.build(bucket_params) 
       if @bucket.save
-        #current_user.buckets << @bucket
+        current_user.buckets << @bucket
     
         redirect_to @bucket, notice: 'Bucket list country was successfully created.' 
       else
