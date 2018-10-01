@@ -72,6 +72,7 @@ gem 'pry'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'will_paginate', '~> 3.1.0'
 
 
 gem 'active_model_serializers', '0.10.6'

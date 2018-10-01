@@ -3,8 +3,9 @@ class BucketsController < ApplicationController
 
 	def index
 		@user = current_user
-		@buckets = Bucket.all
+		#@buckets = Bucket.all
 		@bucket = Bucket.new
+		@buckets = Bucket.paginate(:page => params[:page], :per_page => 10)
 		#respond_to do |format|
 	     # format.html { render :index }
 	     # format.json { render json: @buckets, status: 200}
