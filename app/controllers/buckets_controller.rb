@@ -4,13 +4,14 @@ class BucketsController < ApplicationController
 	def index
 		@user = current_user
 		@buckets = Bucket.all
+		@bucket = Bucket.new
+		#respond_to do |format|
+	     # format.html { render :index }
+	     # format.json { render json: @buckets, status: 200}
+    	#end
 	end
 
 	def show
-	end
-
-	def new
-		@bucket = Bucket.new
 	end
 
 	def create
@@ -18,9 +19,9 @@ class BucketsController < ApplicationController
       if @bucket.save
         current_user.buckets << @bucket
     
-        redirect_to @bucket, notice: 'Bucket list country was successfully created.' 
+        redirect_to buckets_path, notice: 'Successfully created.' 
       else
-        render :new
+        render buckets_path
       end 
 	end
 

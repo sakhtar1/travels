@@ -1,6 +1,8 @@
 class Bucket < ActiveRecord::Base
 	belongs_to :user
 
+  #validates_presence_of :country
+
 	  STATUS = {
     :incomplete => 0,
     :complete => 1

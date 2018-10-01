@@ -1,18 +1,24 @@
 <h2 class= 'title'> Bucket List </h2>
 
-<% @user.buckets.uniq.each do |bucket| %>
-	
-	<div class="checkbox">
-	<label><input type="checkbox" name="checkbox" id="outside" class="sum" value="10" data-toggle="checkbox"> <%= link_to bucket.country, bucket %></label>
-	</div><br/>
-	
-<%end %>
+
+<p><strong> You can add a country to your bucket list, then go edit it, to add cities/places you want to visit, later by clicking on the country.</strong> </p>
+
+
+<%= render "index_form" %>
 
 <br>
 
 
+<p> These are the countries you want to travel to.</p>
+<div class = "checkbox">
+	<%= render "bucket" %>
+</div>
 
 
-<h5>Log a New<a href="/buckets/new"> bucket list country. </a></h5>
-<h5> Go to <a href="/continents"> Continents. </a></h5>
+
+<br>
+
+<p><strong> Note**</strong>: If you have visited a country, you can check it off this list, then go to <a href="/countries"> countries</a> you've visited and update your <a href="/countries"> countries</a>  you've travelled to list. </p>
+<h5> Go to Countries <a href="/countries"> visited! </a></h5>
+<h5> Go to <a href="/continents"> Continents! </a></h5>
 

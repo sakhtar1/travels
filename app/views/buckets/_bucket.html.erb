@@ -1,0 +1,13 @@
+<h5><% @user.buckets.uniq.each do |bucket| %>
+	<% if bucket.country.present? %>
+		<label><input type="checkbox" name="checkbox" id="outside" class="sum" value="10" data-toggle="checkbox"><strong> <%= link_to bucket.country, bucket %></strong></label>
+		
+		 <%#= button_to "Delete", bucket, :method => :delete, :class => "destroy" %>
+		  <br>
+	 <% end %>
+	
+	
+<%end %>
+</h5>
+
+<%# Include more info button in this section for %>
