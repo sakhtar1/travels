@@ -1,9 +1,10 @@
-<h4> Continent: <%= @bucket.continent%></h4>
-<h5> Country: <%= @bucket.country%> </h5>
-<h5> Cities you want to tour: <%= @bucket.city%></h5>
-<h5>Description: <%= @bucket.description%></h5>
+<div class= "buckets">
+	<p class="bucketCont"><strong> Continent: </strong><%= @bucket.continent%></p>
+	<p class="bucketName"><strong> Country you want to visit: </strong><%= @bucket.country%> </p>
+	<p class="bucketCity"><strong> Cities you want to tour: </strong><%= @bucket.city%></p>
+	<p class="bucketDescript"><strong>Description: </strong><%= @bucket.description%></p>
+</div>
 
-<br>
 <br>
 
  <%= link_to "Edit List", edit_bucket_path %>

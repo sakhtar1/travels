@@ -1,3 +1,5 @@
+// show page, clicking on next and previous to view the following country
+
 
 $(function() {
   $(".js-next").on("click", function() {

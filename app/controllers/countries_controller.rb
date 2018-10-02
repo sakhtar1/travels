@@ -4,6 +4,7 @@ class CountriesController < ApplicationController
   def index   
     @user = current_user
     @countries = Country.all 
+    
   end
 
   def show

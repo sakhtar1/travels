@@ -23,7 +23,8 @@ body {
 
 .title {
 	color: #00008B;
-	font-family: Helvetica, Garamond, sans-serif, bold; 
+	font-family: Helvetica, Garamond, sans-serif; 
+  font-style: bold;
 }
 
 html {
@@ -65,4 +66,12 @@ body > .container {
 
 code {
   font-size: 80%;
+}
+
+h5 del {
+text-decoration: none;
+}
+h5 input[type=checkbox]:checked ~ del {
+text-decoration: line-through;
+
 }
