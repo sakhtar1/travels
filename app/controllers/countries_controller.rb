@@ -10,10 +10,10 @@ class CountriesController < ApplicationController
   def show
     @visit = @country.visits.build
     @visit.save
-      respond_to do |format|
-      format.html { render :show }
-      format.json { render json: @country, status: 200}
-    end
+      #respond_to do |format|
+      #format.html { render :show }
+     # format.json { render json: @country, status: 200}
+    #end
   end
 
   def continent_order

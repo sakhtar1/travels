@@ -36,12 +36,22 @@ body {
   margin-bottom: 60px;
 }
 
-.js-see_more{
+#del_ete{
   font-size: 12px;
   padding: 10px;
   color: black;
   font-family: Helvetica, Garamond, sans-serif;
   font-style: italic; 
+}
+#see_more{
+  font-size: 12px;
+  padding: 10px;
+  color: black;
+  font-family: Helvetica, Garamond, sans-serif;
+  font-style: italic; 
+}
+.hidden {
+  display: none;
 }
 .footer {
   position: absolute;
@@ -73,5 +83,4 @@ text-decoration: none;
 }
 h5 input[type=checkbox]:checked ~ del {
 text-decoration: line-through;
-
 }

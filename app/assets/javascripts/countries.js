@@ -1,7 +1,7 @@
 // show page, clicking on next and previous to view the following country
 
 
-$(function() {
+/*$(function() {
   $(".js-next").on("click", function() {
  
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
@@ -13,7 +13,7 @@ $(function() {
       $(".countryDescript").html(country["description"]);
       // re-set the id to current on the link
       $(".js-next").attr("data-id", country["id"]);
-      /* e.preventdefault(); */
+      /* e.preventdefault(); 
     });
   });
 });
@@ -30,7 +30,7 @@ $(function() {
       $(".countryDescript").html(country["description"]);
       // re-set the id to current on the link
       $(".js-previous").attr("data-id", country["id"]);
-      /* e.preventdefault(); */
+      /* e.preventdefault(); 
     });
   });
 });

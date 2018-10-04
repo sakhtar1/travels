@@ -1,18 +1,44 @@
-<h5><% @buckets.each do |bucket| %>
-	<% if bucket.country.present? %>
-		<label><input type="checkbox" name="checkbox" id="outside" class="checkbox" data-toggle="checkbox"></input>
-			
-			<del><strong name="check_count" class="check_count"><%= link_to bucket.country, bucket %></strong></del>
-		</label>
-		<a href="#" class="js-see_more" data-id="<%=@bucket.id%>">(See More...)</a>
-		 <%#= button_to "Delete", bucket, :method => :delete, :class => "destroy" %>
-		  <br>
-	 <% end %>
+
+	<h5><% @buckets.each do |bucket| %>
+		<% if bucket.country.present? %>
+		
+			<label><input type="checkbox" name="checkbox" id="checkbox" class="checkbox" data-toggle="checkbox"></input>
+
+				<del><strong name="check_count" class="check_count" id="check_count"><%= link_to bucket.country, bucket %></strong></del>
+
+
+			<div style="display:none"id="del_ete"><%= button_to "Delete", bucket, :method => :delete %></div></label>
+			 
+			  <br>
+		 <% end %>
+	<%end %>
+	<br>
+	 <input id="removecount"type="submit" value="Check TRAVELLED" onclick="is_checked();">
 	
-	
-<%end %>
+
 </h5>
 
+<script type="text/javascript">
+
+ $(function is_checked(){
+        var test = localStorage.input === 'true'? true: false;
+        $('input').prop('checked', test || false);
+         $('input').change();
+    });
+
+
+
+
+	 
+
+
+
+	
+
+
+
+
+</script>
 
 
 

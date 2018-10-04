@@ -1,18 +1,24 @@
-<div class= "buckets">
+	<a href="#" class="js-next" data-id="<%=@bucket.id%>">Next Country</a>
+	<br>
+	<a href="#" class="js-previous" data-id="<%=@bucket.id%>">Previous Country</a>
+	<br>
+	<br>
 	<p class="bucketCont"><strong> Continent: </strong><%= @bucket.continent%></p>
 	<p class="bucketName"><strong> Country you want to visit: </strong><%= @bucket.country%> </p>
 	<p class="bucketCity"><strong> Cities you want to tour: </strong><%= @bucket.city%></p>
 	<p class="bucketDescript"><strong>Description: </strong><%= @bucket.description%></p>
-</div>
+	
+
 
 <br>
+
 
  <%= link_to "Edit List", edit_bucket_path %>
 
 <br>
 <br>
 
- <a href="/buckets"> Back </a>
+
 
 <br>
 <br>

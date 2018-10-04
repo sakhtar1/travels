@@ -21,27 +21,52 @@ $(function(){
   })
 })
 
+
+/*$(function () {
+  $(".js-next").on("click", function() {
+    $.ajax({
+      type: "GET",
+      //data: JSON.stringify(data),
+      contentType: "application/json",
+      dataType: 'json',
+      url: "/buckets/" + ("data-id" + 1)
+      success: function(response){
+        var bucket = response;
+        $(".bucketCont").text(bucket["continent"]);
+        $(".bucketName").text(bucket["country"]);
+        $(".bucketCity").text(bucket["city"]);
+        $(".bucketDescript").text(bucket["description"]);
+        // re-set the id to current on the link
+        $(".js-next").attr("data-id", bucket["id"]);
+
+      }
+    });
+  });
+});
+
+
+/*
+
+// checkbox
+
 function check() {
-    document.getElementById("outside").checked = true;
+    document.getElementById("checkbox").checked = true;
 }
 
 function uncheck() {
-    document.getElementById("myCheck").checked = false;
+    document.getElementById("checkbox").checked = false;
 }
-// checkbox
-function myFunction() {
-  // Get the checkbox
-  var checkBox = document.getElementById("myCheck");
-  // Get the output text
-  var text = document.getElementById("text");
 
-  // If the checkbox is checked, display the output text
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-    text.style.display = "none";
-  }
-}
+$('.checkbox').change(function() {
+ if ($(this).attr("checked")) {
+
+    $('.check_count').fadeIn();
+    return;
+ }
+ $('.check_count').fadeOut();
+});
+
+
 
 
 
@@ -68,6 +93,44 @@ $(function(){
 })
 
 
+$(function () {
+  $(".js-next").on("click", function() {
+    $.ajax({
+      type: "GET",
+      dataType: 'json',
+      headers: {
+      "application/json",
+      }
+      var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+      url: "/buckets/" + nextId + ".json", function(data){
+      var bucket = data;
+      $(".bucketCont").text(bucket["continent"]);
+      $(".bucketName").text(bucket["country"]);
+      $(".bucketCity").text(bucket["city"]);
+      $(".bucketDescript").text(bucket["description"]);
+      // re-set the id to current on the link
+      $(".js-next").attr("data-id", bucket["id"]);
+
+      });
+  });
+});
+      
+    $(function () {
+  $(".js-next").on("click", function() {
+    dataType: 'json',
+    //headers: "application/json",
+    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.get("/buckets/" + nextId + ".json", function(data) {
+      var bucket = data;
+      $(".bucketCont").text(bucket["continent"]);
+      $(".bucketName").text(bucket["country"]);
+      $(".bucketCity").text(bucket["city"]);
+      $(".bucketDescript").text(bucket["description"]);
+      // re-set the id to current on the link
+      $(".js-next").attr("data-id", bucket["id"]);
+    });
+  });
+});
 
 
 

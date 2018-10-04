@@ -55,7 +55,8 @@ class BucketsController < ApplicationController
 	        :continent,
 	        :country,
 	        :city,
-	        :description
+	        :description,
+	        :status
 	        )
 	    end
 
