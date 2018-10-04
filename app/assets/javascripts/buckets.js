@@ -1,5 +1,5 @@
 
-// index page bucket list country submitting dynamically
+// Index page bucket list country submitting dynamically
 
 $(function(){
   $("#new_bucket").on("submit", function(e){
@@ -22,24 +22,36 @@ $(function(){
 })
 
 
-/*$(function () {
-  $(".js-next").on("click", function() {
-    $.ajax({
-      type: "GET",
-      //data: JSON.stringify(data),
-      contentType: "application/json",
-      dataType: 'json',
-      url: "/buckets/" + ("data-id" + 1)
-      success: function(response){
-        var bucket = response;
-        $(".bucketCont").text(bucket["continent"]);
-        $(".bucketName").text(bucket["country"]);
-        $(".bucketCity").text(bucket["city"]);
-        $(".bucketDescript").text(bucket["description"]);
-        // re-set the id to current on the link
-        $(".js-next").attr("data-id", bucket["id"]);
+// Clicking next on show page to view next country
 
-      }
+$(function () {
+  $(".js-next").on("click", function() {
+    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.get("/buckets/" + nextId, function(data) {
+      var bucket = data;
+      $(".bucketCountry").text(bucket["country"]);
+      $(".bucketCity").text(bucket["city"]);
+      $(".bucketDescription").text(bucket["description"]);
+      $(".bucketContinent").text(bucket["continent"]);
+      // re-set the id to current on the link
+      $(".js-next").attr("data-id", bucket["id"]);
+    });
+  });
+});
+
+// Clicking previous on show page to view previous country
+
+$(function () {
+  $(".js-previous").on("click", function() {
+    var previousId = parseInt($(".js-previous").attr("data-id")) - 1;
+    $.get("/buckets/" + previousId, function(data) {
+      var bucket = data;
+      $(".bucketCountry").text(bucket["country"]);
+      $(".bucketCity").text(bucket["city"]);
+      $(".bucketDescription").text(bucket["description"]);
+      $(".bucketContinent").text(bucket["continent"]);
+      // re-set the id to current on the link
+      $(".js-previous").attr("data-id", bucket["id"]);
     });
   });
 });
@@ -93,96 +105,4 @@ $(function(){
 })
 
 
-$(function () {
-  $(".js-next").on("click", function() {
-    $.ajax({
-      type: "GET",
-      dataType: 'json',
-      headers: {
-      "application/json",
-      }
-      var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-      url: "/buckets/" + nextId + ".json", function(data){
-      var bucket = data;
-      $(".bucketCont").text(bucket["continent"]);
-      $(".bucketName").text(bucket["country"]);
-      $(".bucketCity").text(bucket["city"]);
-      $(".bucketDescript").text(bucket["description"]);
-      // re-set the id to current on the link
-      $(".js-next").attr("data-id", bucket["id"]);
-
-      });
-  });
-});
-      
-    $(function () {
-  $(".js-next").on("click", function() {
-    dataType: 'json',
-    //headers: "application/json",
-    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/buckets/" + nextId + ".json", function(data) {
-      var bucket = data;
-      $(".bucketCont").text(bucket["continent"]);
-      $(".bucketName").text(bucket["country"]);
-      $(".bucketCity").text(bucket["city"]);
-      $(".bucketDescript").text(bucket["description"]);
-      // re-set the id to current on the link
-      $(".js-next").attr("data-id", bucket["id"]);
-    });
-  });
-});
-
-
-
-
-/*
-
-<script type="text/javascript" charset="utf-8">
-$(function () {
-  $(".js-see_more").on('click', function() {
-    var id = $(this).data("id");
-    $.get("/buckets/" + id, function(data) {
-      // Replace text of body-id div
-      $("#body-" + id).text(data);
-    });
-  });
-});
-</script>
-
-$(function() {
-	$(".js-more").on("click", function(e) {
-	$.get(this.href), function(json){
-    var $ul = $("ul.bucket")
-			$ul.html("")
-      json.forEach(function(comment){
-        $ul.append("<li>" + comment.content + "</li>")
-      })
-		}
-
-		e.preventDefault();
-	})
-})
-
-})$(function() {
-    $(".js-more").on("click", function() {
-      var id = $(this).data("id");
-      $.get("/buckets/" + id + ".json", function(data) {
-        var bucket = data;
-        var continentText = bucket["country"]
-        return "<p>" + bucket["city"] + "</p><p>" + continentText + "</p>";
-      });
-    });
-  });
-
-  $(function() {
-  $(".js-more").on("click", function(e) {
-  $.ajax({
-    url: this.href,
-    dataType: "script"
-  })
-
-  e.preventDefault();
-  })
-})
-*/
 

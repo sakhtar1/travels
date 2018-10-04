@@ -1,25 +1,13 @@
-	<a href="#" class="js-next" data-id="<%=@bucket.id%>">Next Country</a>
-	<br>
-	<a href="#" class="js-previous" data-id="<%=@bucket.id%>">Previous Country</a>
-	<br>
-	<br>
-	<p class="bucketCont"><strong> Continent: </strong><%= @bucket.continent%></p>
-	<p class="bucketName"><strong> Country you want to visit: </strong><%= @bucket.country%> </p>
-	<p class="bucketCity"><strong> Cities you want to tour: </strong><%= @bucket.city%></p>
-	<p class="bucketDescript"><strong>Description: </strong><%= @bucket.description%></p>
-	
 
 
-<br>
+<h1 class="bucketCountry">Country: <%= @bucket.country %></h1>
+<p class="bucketContinent">Continent: <%= @bucket.continent %></p>
+<p class="bucketCity">Cities you want to visit: <%= @bucket.city %></p>
+<p class="bucketDescription"><%= @bucket.description %></p>
 
+<button class="js-next" data-id="<%=@bucket.id%>">Next Country</button>
+<% if @bucket.id > 1 %>
 
- <%= link_to "Edit List", edit_bucket_path %>
+	<button class="js-previous" data-id="<%=@bucket.id%>">Previous Country</button>
+<% end %>
 
-<br>
-<br>
-
-
-
-<br>
-<br>
- <%= button_to "Delete Country", @bucket, :method => :delete %>
