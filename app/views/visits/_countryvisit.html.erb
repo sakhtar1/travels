@@ -1,11 +1,11 @@
-<h5><% @country.visits.each do |visit| %>
+<div><% @country.visits.each do |visit| %>
 	<% if visit.visit_places.present? %>
 
-		Place Visited: <%= link_to visit.visit_places, country_visit_path(visit.country, visit) %>
-			<br>
-	    Date: <%= visit.visit_date.strftime("%m/%d/%Y")%>
-	    <br>
-	    <br>
+		<h5 class="visit">Place Visited: <%= link_to visit.visit_places, country_visit_path(visit.country, visit) %></h5>
+			
+	    <h5>Date: <%= visit.visit_date.strftime("%m/%d/%Y")%></h5>
+	 
+	   
 	    
 	    <%= button_to "Delete", country_visit_path(visit.country, visit), :method => :delete, :class => "destroy" %>
 	    
@@ -13,4 +13,4 @@
     	<br>
     <% end %>
   <% end %>
-</h5>
+</div>

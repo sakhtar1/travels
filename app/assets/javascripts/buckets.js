@@ -11,7 +11,7 @@ $(function(){
       data: $(this).serialize(),
       success: function(response){
         $("#bucket_country").val("");
-        var $div = $("div.checkbox")
+        var $div = $("div.checkbox.check_count")
         $div.append(response); 
       
       }
@@ -22,29 +22,39 @@ $(function(){
 })
 
 
+
+
 // Clicking next on show page to view next country
 
 $(function () {
   $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/buckets/" + nextId, function(data) {
+    $.get("/buckets/" + nextId + ".json", function(data) {
       var bucket = data;
-      $(".bucketCountry").text(bucket["country"]);
-      $(".bucketCity").text(bucket["city"]);
-      $(".bucketDescription").text(bucket["description"]);
-      $(".bucketContinent").text(bucket["continent"]);
+      $(".bucketCountry").html(bucket["country"]);
+      $(".bucketCity").html(bucket["city"]);
+      $(".bucketDescription").html(bucket["description"]);
+      $(".bucketContinent").html(bucket["continent"]);
       // re-set the id to current on the link
       $(".js-next").attr("data-id", bucket["id"]);
     });
   });
 });
 
-// Clicking previous on show page to view previous country
 
-$(function () {
+  // navigate to previous page when 'back' link clicked
+  
+$(document).on("click", "a.back", function(e){
+    parent.history.back()
+    e.preventDefault()
+  })
+
+  // Clicking previous on show page to view previous country
+
+/*$(function () {
   $(".js-previous").on("click", function() {
     var previousId = parseInt($(".js-previous").attr("data-id")) - 1;
-    $.get("/buckets/" + previousId, function(data) {
+    $.get("/buckets/" + previousId + ".json", function(data) {
       var bucket = data;
       $(".bucketCountry").text(bucket["country"]);
       $(".bucketCity").text(bucket["city"]);
@@ -55,13 +65,14 @@ $(function () {
     });
   });
 });
+*/
 
 
-/*
+
 
 // checkbox
 
-function check() {
+/*function check() {
     document.getElementById("checkbox").checked = true;
 }
 
@@ -103,6 +114,7 @@ $(function(){
     e.preventDefault();
   })
 })
+*/
 
 
 

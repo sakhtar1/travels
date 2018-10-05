@@ -6,8 +6,9 @@
 <p class="bucketDescription"><%= @bucket.description %></p>
 
 <button class="js-next" data-id="<%=@bucket.id%>">Next Country</button>
-<% if @bucket.id > 1 %>
+<%# if @bucket.id > 1 %>
 
-	<button class="js-previous" data-id="<%=@bucket.id%>">Previous Country</button>
-<% end %>
+	<a class = "hidden" class="js-previous" data-id="<%=@bucket.id%>">Previous Country</button>
+<%# end %>
 
+<a href="#" class="back"> Back </a>
