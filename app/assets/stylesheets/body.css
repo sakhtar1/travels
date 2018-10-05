@@ -84,3 +84,12 @@ text-decoration: none;
 h5 input[type=checkbox]:checked ~ del {
 text-decoration: line-through;
 }
+
+div.flip-control {
+    width: 400px;
+    text-align: center;
+}
+
+div.flip-control a {
+    margin-left: 10px;
+}

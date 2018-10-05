@@ -44,7 +44,7 @@ $(function () {
 
   // navigate to previous page when 'back' link clicked
   
-$(document).on("click", "a.back", function(e){
+$(document).on("click", ".back", function(e){
     parent.history.back()
     e.preventDefault()
   })

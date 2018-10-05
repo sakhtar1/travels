@@ -1,14 +1,28 @@
 
-
+<div id=samp>
 <h1 class="bucketCountry">Country: <%= @bucket.country %></h1>
 <p class="bucketContinent">Continent: <%= @bucket.continent %></p>
 <p class="bucketCity">Cities you want to visit: <%= @bucket.city %></p>
-<p class="bucketDescription"><%= @bucket.description %></p>
+<p class="bucketDescription">Description: <%= @bucket.description %></p>
+<br>
 
-<button class="js-next" data-id="<%=@bucket.id%>">Next Country</button>
-<%# if @bucket.id > 1 %>
 
-	<a class = "hidden" class="js-previous" data-id="<%=@bucket.id%>">Previous Country</button>
-<%# end %>
 
-<a href="#" class="back"> Back </a>
+</div>
+
+
+
+<div class="flip-control">
+
+	<% if @bucket.id > 1 %>
+		<button  class="js-previous" data-id="<%=@bucket.id%>">Previous Country</button>
+	<% end %>
+
+    <button class="js-next" data-id="<%=@bucket.id%>">Next Country</button>
+
+
+
+	<button class="back"> Back </button>
+
+</div>
+
