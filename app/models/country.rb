@@ -10,9 +10,5 @@ class Country < ActiveRecord::Base
 		Country.where("id > ?", id).first
 	end
 
-	def prev
-		Country.where("id > ?", id).last
-	end
-
 
 end

@@ -12,7 +12,6 @@ class CountriesController < ApplicationController
     @visit = @country.visits.build
     @visit.save
     @next_country = @country.next
-    @prev_country = @country.prev
       #respond_to do |format|
       #format.html { render :show }
      # format.json { render json: @country, status: 200}

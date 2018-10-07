@@ -3,11 +3,11 @@
 <div>
 	<ol><% @user.countries.uniq.each do |country| %>
 		
-		<strong><li><%= link_to country.name, country %></li><strong>
-			<p id="cont"class="hidden">Continent: <%= country.continent%></p>
+		<strong><li><%= link_to country.name, country %></li><strong>	
+		<a href="#" id="see_more" data-id="<%=country.id%>">(See More...)</a>
+		<p id="cont-<%= country.id%>-name"></p>
+		<p id="cont"class="hidden">Continent: <%= country.continent%></p>
 		<p id="city" class="hidden">City: <%= country.city%></p>
-
-		<a href="#" id="see_more" onclick="see_more();"data-id="<%=country.id%>">(See More...)</a>
 		
 		
 

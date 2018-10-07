@@ -1,16 +1,15 @@
 <div class = "prev-next">
-	<%#= link_to "Previous", @prev_country if !@prev_country.nil? %>
 	<a href="#" class="back"> Back </a>
 	<br>
-
 	<%= link_to "Next Country", @next_country if !@next_country.nil? %>
 </div>
 
-
-<h4 class="countryCont"> <%= @country.continent%></h4>
-<h5 class="countryName"> Country Visited: <%= @country.name%> </h5>
-<h5 class="countryCity"> Cities you toured: <%= @country.city%></h5>
-<h5 class="countryDescript">Description: <%= @country.description%></h5>
+<div class="countryname">
+	<h4 class="countryCont"> <%= @country.continent%></h4>
+	<h5 class="countryName"> Country Visited: <%= @country.name%> </h5>
+	<h5 class="countryCity"> Cities you toured: <%= @country.city%></h5>
+	<h5 class="countryDescript">Description: <%= @country.description%></h5>
+</div>
 
 <br>
 <p id="visit-link" >
@@ -22,18 +21,9 @@
 </div>
 
 <br>
-
-	<p id="visit"><%= render "visits/countryvisit" %></p>
-
-	 <br>
-
-	<p><%= link_to "Click Here", visitsorder_country_visits_path(@visit.country, @visit) %> to see each attraction ordered by date.</p>
-
-<a href="#" class="back"> Back </a>
+<p id="visit"><%= render "visits/countryvisit" %></p>
 <br>
-
-	 <%= link_to "Edit Country", edit_country_path %>
-	 <br>
-<br>
+<p><%= link_to "Click Here", visitsorder_country_visits_path(@visit.country, @visit) %> to see each attraction ordered by date.</p>
+<p><%= link_to "Edit Country", edit_country_path %></p>
  <%= button_to "Delete Country", @country, :method => :delete %>
 

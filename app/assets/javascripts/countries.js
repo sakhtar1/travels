@@ -16,15 +16,14 @@ $(function(){
 });
 
 // JS see more
-
-function see_more(){
-      $('#see_more').addClass('hidden');
-      //or
-      $('#cont').removeClass('hidden');
-      $('#city').removeClass('hidden');
-      $('#see_less').removeClass('hidden');
- }
-
+$('#see_more').on('click'), function(e) {
+  e.preventdefault();
+  var id = $(this).data('id')
+  $.get('/countries/' + id + '.json', function(data){
+    $("#cont-" + id).text(data["continent"]);
+  })
+}
+// JS see less
 function see_less(){
       $('#see_less').addClass('hidden');
       //or
@@ -32,6 +31,16 @@ function see_less(){
       $('#city').addClass('hidden');
       $('#see_more').removeClass('hidden');
 }
+
+/*function see_more(){
+      $('#see_more').addClass('hidden');
+      //or
+      $('#cont').removeClass('hidden');
+      $('#city').removeClass('hidden');
+      $('#see_less').removeClass('hidden');
+ }
+
+
 
 // show page, clicking on next and previous to view the following country
 
