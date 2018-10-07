@@ -14,8 +14,15 @@ $(function(){
   })
 });
 
-// JS see less
+// JS see more
 
+function see_more(){
+      $('#see_more').addClass('hidden');
+      //or
+      $('#cont').removeClass('hidden');
+      $('#city').removeClass('hidden');
+      $('#see_less').removeClass('hidden');
+ }
 
 function see_less(){
       $('#see_less').addClass('hidden');

@@ -7,7 +7,7 @@
 			<p id="cont"class="hidden">Continent: <%= country.continent%></p>
 		<p id="city" class="hidden">City: <%= country.city%></p>
 
-		  <button class="see_more" data-id="<%= product.id %>">More Info</button>
+		<a href="#" id="see_more" onclick="see_more();"data-id="<%=country.id%>">(See More...)</a>
 		
 		
 
@@ -18,28 +18,6 @@
 <br>
 
 <br>
-
-<% @products.each do |product| %>
-  <h3><%= product.name %></h3>
-  <div id="product-<%= product.id %>"><%= truncate(product.description) %></div>
-  <button class="js-more" data-id="<%= product.id %>">More Info</button>
-  <ul id="product-<%= product.id %>-orders">
-  </ul>
-<% end %>
-
-<script type="text/javascript" charset="utf-8">
-$(function() {
-  $(".see_more").on("click", function() {
-    var id = $(this).data("id");
-    $.get("/countries/" + id + ".json", function(data) {
-      var country = data;
-      var continent= country["continent"];
-      var city = country["city"];
-      return continent
-      return city
-  });
-});
-</script>
 
 
 
