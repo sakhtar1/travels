@@ -4,10 +4,10 @@
 	<ol><% @user.countries.uniq.each do |country| %>
 		
 		<strong><li><%= link_to country.name, country %></li><strong>
-			<p id="cont">Continent: <%= country.continent%></p>
+			<p id="cont"class="hidden">Continent: <%= country.continent%></p>
 		<p id="city" class="hidden">City: <%= country.city%></p>
 
-		<a href="#" id="see_more" onclick="see_more();"data-id="<%=country.id%>">(See More...)</a>
+		  <button class="see_more" data-id="<%= product.id %>">More Info</button>
 		
 		
 
@@ -19,30 +19,31 @@
 
 <br>
 
+<% @products.each do |product| %>
+  <h3><%= product.name %></h3>
+  <div id="product-<%= product.id %>"><%= truncate(product.description) %></div>
+  <button class="js-more" data-id="<%= product.id %>">More Info</button>
+  <ul id="product-<%= product.id %>-orders">
+  </ul>
+<% end %>
+
+<script type="text/javascript" charset="utf-8">
+$(function() {
+  $(".see_more").on("click", function() {
+    var id = $(this).data("id");
+    $.get("/countries/" + id + ".json", function(data) {
+      var country = data;
+      var continent= country["continent"];
+      var city = country["city"];
+      return continent
+      return city
+  });
+});
+</script>
+
 
 
 
 <h5>Log a New<a href="/countries/new"> Country. </a></h5>
 <h5> Go to <a href="/continents"> Continents. </a></h5>
 
-<script type="text/javascript">
-	function see_more(){
-		  $('#see_more').addClass('hidden');
-		  //or
-		  $('#cont').removeClass('hidden');
-		  $('#city').removeClass('hidden');
-		  $('#see_less').removeClass('hidden');
-	}
-
-	function see_less(){
-		  $('#see_less').addClass('hidden');
-		  //or
-		  $('#cont').removeClass('hidden');
-		  $('#city').removeClass('hidden');
-		  $('#see_more').removeClass('hidden');
-	}
-
-
-
-
-</script>

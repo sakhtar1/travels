@@ -1,5 +1,5 @@
 
-<%= form_for([@country, @visit]) do |f| %>
+<%= form_for([@country, @visit], remote: true) do |f| %>
 	<form action='/countries' method='POST'>
 	<%= f.label :'Additional places visited:' %>
 	  <br>

@@ -1,4 +1,4 @@
-<div><% @country.visits.each do |visit| %>
+<% @country.visits.each do |visit| %>
 	<% if visit.visit_places.present? %>
 
 		<h5 class="visit">Place Visited: <%= link_to visit.visit_places, country_visit_path(visit.country, visit) %></h5>
@@ -13,4 +13,3 @@
     	<br>
     <% end %>
   <% end %>
-</div>

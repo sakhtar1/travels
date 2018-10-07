@@ -36,6 +36,10 @@ body {
   margin-bottom: 60px;
 }
 
+#visit-section{
+  display:none;
+}
+
 #del_ete{
   font-size: 12px;
   padding: 10px;

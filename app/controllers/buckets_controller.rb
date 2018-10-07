@@ -13,9 +13,10 @@ class BucketsController < ApplicationController
 	end
 
 	def show
+		@bucket = Bucket.find_by(id: params[:id])
 		respond_to do |format|
 	      format.html { render :show }
-	      format.json { render json: @buckets, status: 200}
+	      format.json { render json: @bucket, status: 200}
     	end
 	end
 

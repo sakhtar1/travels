@@ -4,39 +4,23 @@
 		
 			<label><input type="checkbox" name="checkbox" id="checkbox" class="checkbox" data-toggle="checkbox"></input>
 
+
 				<del><strong name="check_count" class="check_count" id="check_count"><%= link_to bucket.country, bucket %></strong></del>
 
 
-			<div id="del_ete"><%= button_to "Delete", bucket, :method => :delete %></div></label>
+			<div id="del_ete"><%= button_to "Delete", bucket, :method => :delete, data: {confirm: 'Are you sure?'} %></div></label>
 			 
 			  <br>
 		 <% end %>
 	<%end %>
 	<br>
+	
 	 <input id="removecount"type="submit" value="Check TRAVELLED" onclick="is_checked();">
 	
 
 </h5>
 
 <script type="text/javascript">
-
- $(function is_checked(){
-        var test = localStorage.input === 'true'? true: false;
-        $('input').prop('checked', test || false);
-         $('input').change();
-    });
-
-
-
-
-	 
-
-
-
-	
-
-
-
 
 </script>
 

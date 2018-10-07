@@ -8,25 +8,27 @@
 <h5 class="countryDescript">Description: <%= @country.description%></h5>
 
 <br>
-
-<%= render "visits/form" %>
-<br>
-<%= render "visits/countryvisit" %>
-
-<br>
-
- <%= link_to "Edit Country", edit_country_path %>
- <br>
- <br>
-
- <%= link_to "To see each attraction ordered by date:", visitsorder_country_visits_path(@visit.country, @visit) %>
+<p id="visit-link" >
+	<%= link_to "Add To Sites Visited", "#"%>
+</p>
+<div id="visit-section">
+	<p><%= render "visits/form" %></p>
+	<br>
+</div>
 
 <br>
-<br>
+
+	<p id="visit"><%= render "visits/countryvisit" %></p>
+
+	 <br>
+
+	<p><%= link_to "Click Here", visitsorder_country_visits_path(@visit.country, @visit) %> to see each attraction ordered by date.</p>
 
 <a href="#" class="back"> Back </a>
-
 <br>
+
+	 <%= link_to "Edit Country", edit_country_path %>
+	 <br>
 <br>
  <%= button_to "Delete Country", @country, :method => :delete %>
 
