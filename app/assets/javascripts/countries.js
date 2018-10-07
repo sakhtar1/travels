@@ -9,8 +9,9 @@ $(document).on("click", "a.back", function(e){
 // Visit view form content via anchor link
 
 $(function(){
-  $("#visit-link").on("click", function() {
-    $('#visit-section').fadeToggle()
+  $("#visit-link").on("click", function(e) {
+    $('#visit-section').fadeToggle();
+    e.preventdefault();
   })
 });
 

@@ -6,5 +6,13 @@ class Country < ActiveRecord::Base
 
 	validates_presence_of :name, :continent, :city
 
+	def next
+		Country.where("id > ?", id).first
+	end
+
+	def prev
+		Country.where("id > ?", id).last
+	end
+
 
 end

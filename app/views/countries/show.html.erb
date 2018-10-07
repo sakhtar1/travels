@@ -1,5 +1,10 @@
-<a href="#" class="js-next" data-id="<%=@country.id%>">Next Country</a>
-<br>
+<div class = "prev-next">
+	<%#= link_to "Previous", @prev_country if !@prev_country.nil? %>
+	<a href="#" class="back"> Back </a>
+	<br>
+
+	<%= link_to "Next Country", @next_country if !@next_country.nil? %>
+</div>
 
 
 <h4 class="countryCont"> <%= @country.continent%></h4>
