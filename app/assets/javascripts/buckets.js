@@ -36,14 +36,17 @@ $(function(){
 $(function () {
   $(".next").on("click", function() {
     var nextId = parseInt($(".next").attr("data-id")) + 1;
-    $.get("/buckets/" + nextId, function(data) {
-      var bucket = data;
-      $(".bucketCountry").html(bucket["country"]);
-      $(".bucketCity").html(bucket["city"]);
-      $(".bucketDescription").html(bucket["description"]);
-      $(".bucketContinent").html(bucket["continent"]);
+    $.get("/buckets/" + nextId + ".json", function(datas) {
+      var data = datas["data"]
+      var bucket = data["attributes"];
+ 
+      $(".bucketCountry").text("Country: " + bucket["country"]);
+      $(".bucketCity").text("Continent: " + bucket["city"]);
+      $(".bucketDescription").text("Cities you want to visit: " + bucket["description"]);
+      $(".bucketContinent").text("Description: " + bucket["continent"]);
       // re-set the id to current on the link
-      $(".next").attr("data-id", bucket["id"]);
+      $(".next").attr("data-id", data["id"]);
+      $(".previous").attr("data-id", data["id"])
     });
   });
 });
@@ -56,14 +59,17 @@ $(function () {
 $(function () {
   $(".previous").on("click", function() {
     var previousId = parseInt($(".previous").attr("data-id")) - 1;
-    $.get("/buckets/" + previousId + ".json", function(data) {
-      var bucket = data;
-      $(".bucketCountry").text(bucket["country"]);
-      $(".bucketCity").text(bucket["city"]);
-      $(".bucketDescription").text(bucket["description"]);
-      $(".bucketContinent").text(bucket["continent"]);
+    $.get("/buckets/" + previousId + ".json", function(datas) {
+      var data = datas["data"]
+      var bucket = data["attributes"];
+
+      $(".bucketCountry").text("Country: " + bucket["country"]);
+      $(".bucketCity").text("Continent: " + bucket["city"]);
+      $(".bucketDescription").text("Cities you want to visit: " + bucket["description"]);
+      $(".bucketContinent").text("Description: " + bucket["continent"]);
       // re-set the id to current on the link
-      $(".previous").attr("data-id", bucket["id"]);
+      $(".previous").attr("data-id", data["id"]);
+      $(".next").attr("data-id", data["id"]);
     });
   });
 });

@@ -19,40 +19,6 @@
 
 <br>
 
-<script type="text/javascript">
-	
-	$('.see_more').on('click', function(e) {
-		
-	  e.preventDefault();
-	  var id = $(this).data('id')
-
-	  $.get('/countries/' + id + '.json', function(datas){
-		data = datas["data"].attributes
-	    $("#cont-" + id).prepend("<li>" + data["continent"] + "</li>");
-	    $("#cont-" + id).prepend("<li>" + data["city"] + "</li>");
-	    //$('.see_less').fadeToggle();
-
-	   //$('.see_more').addClass('hidden');
-	  
-	 
-  })
-})
-//
-
-function see_less(){
-
-	var id = $(this).data('id')
-	$.get('/countries/' + id + '.json', function(datas){
-   	 data = datas["data"].attributes
-      $("#cont-" + id).addClass('hidden');
-      $('.cont-' + id).addClass('hidden');
-      	$('.see_more').removeClass('hidden');
-     
-	})
-}
-
-</script>
-
 
 
 

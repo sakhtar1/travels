@@ -11,11 +11,12 @@
 
 
 <div class="flip-control">
-	<% if @bucket.id > 1 %>
+	<% if !@bucket.id.nil?%>
 		<button  class="previous" data-id="<%=@bucket.id%>">Previous Country</button>
 	<% end %>
-
-    <button class="next" data-id="<%=@bucket.id%>">Next Country</button>
+	<% if !@bucket.id.nil? %>
+    	<button class="next" data-id="<%=@bucket.id%>">Next Country</button>
+    <% end %>
 	<button class="back"> Back </button>
 	<button><%= link_to "Edit", edit_bucket_path %></button>
 

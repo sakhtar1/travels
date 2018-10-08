@@ -18,24 +18,36 @@ $(function(){
 
 
 // JS see more
+$(function(){
+  $('.see_more').on('click', function(e) {
+    
+    e.preventDefault();
+    var id = $(this).data('id')
 
+    $.get('/countries/' + id + '.json', function(datas){
+    data = datas["data"].attributes
 
+      $("#cont-" + id).text(data["city"]);
+    
+    });
+  })
+})
 
-/*function see_more(){
-      $('#see_more').addClass('hidden');
-      //or
-      $('#cont').removeClass('hidden');
-      $('#city').removeClass('hidden');
-      $('#see_less').removeClass('hidden');
- }
+/*function see_less(){
 
+  var id = $(this).data('id')
+      $('.cont-' + id).addClass('hidden');
+      $('.see_less').addClass('hidden');
+      $('.see_more').removeClass('hidden');
+     
+  }
 
 
 // show page, clicking on next and previous to view the following country
 
 
 
-/*$(function() {
+$(function() {
   $(".js-next").on("click", function() {
  
     var nextId = parseInt($(".js-next").attr("data-id"));

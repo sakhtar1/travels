@@ -1,2 +1,3 @@
-$("#visit").append("<%= j render 'visits/countryvisit' %>");
+
+$("#visit").append("<%= j render 'visits/countryvisit', data: { turbolinks: false }  %>");
 $("#visit_visit_places").val("");
