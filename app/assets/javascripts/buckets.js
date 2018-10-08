@@ -6,6 +6,7 @@ $(document).on("click", ".back", function(e){
   })
 
 
+
 // Index page bucket list country submitting dynamically
 
 $(function(){

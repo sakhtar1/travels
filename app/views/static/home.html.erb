@@ -9,4 +9,32 @@
 <p> Add to your <a href="/buckets">Bucket List! </a></p>
 
 
-<ol class='image'><%= image_tag("http://swdistrict.org/wp-content/uploads/2017/07/big-globe-and-hands.png", :alt => "Continents") %></ol>
+
+
+<div class="w3-content w3-display-container">
+  <img class="mySlides" src="http://swdistrict.org/wp-content/uploads/2017/07/big-globe-and-hands.png">
+  <img class="mySlides" src="https://www.planetware.com/photos-large/F/eiffel-tower.jpg">
+  <img class="mySlides" src="https://static.vinepair.com/wp-content/uploads/2017/06/iceland-summer-solstice-inside.jpg">
+  <img class="mySlides" src="https://amp.thisisinsider.com/images/58936e390849ec1a008b4619-750-563.jpg">
+
+</div>
+
+
+<script type="text/javascript">
+	
+
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>

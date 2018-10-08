@@ -3,18 +3,19 @@
 
 <p><strong> You can add a country to your bucket list, then go edit it, to add cities/places you want to visit, later by clicking on the country.</strong> </p>
 
-
+<div>
 <%= render "index_form" %>
+</div>
 
 <br>
 
 
 <p> These are the countries you want to travel to. If you have travelled to any of the below, check it off and click "TRAVELLED". You can then add the country to your travelled list under <a href="/countries">Countries</a></p>
+
 <div class = "checkbox">
-
 	<%= render "bucket" %>
-
 </div>
+
 <%= will_paginate @buckets, :page_links => false %>
 
 
