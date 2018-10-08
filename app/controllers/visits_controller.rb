@@ -11,12 +11,12 @@ class VisitsController < ApplicationController
       @country = Country.find(params[:country_id])
       @visit = @country.visits.build(visit_params)
       if @visit.save
+         redirect_to country_path(@country), notice: 'Successful Save'
+      else
         respond_to do |format|
           format.html { redirect_to country_path(@country), notice: 'Successful Save'}
           format.js
         end
-      else
-        render country_path(@country)
       end
   end
 

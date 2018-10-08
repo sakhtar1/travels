@@ -47,12 +47,20 @@ body {
   font-family: Helvetica, Garamond, sans-serif;
   font-style: italic; 
 }
-#see_more{
+.see_more{
   font-size: 12px;
   padding: 10px;
   color: black;
   font-family: Helvetica, Garamond, sans-serif;
   font-style: italic; 
+}
+.see_less{
+  font-size: 12px;
+  padding: 10px;
+  color: black;
+  font-family: Helvetica, Garamond, sans-serif;
+  font-style: italic; 
+  display: none;
 }
 .hidden {
   display: none;

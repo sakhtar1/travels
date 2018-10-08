@@ -12,11 +12,11 @@
 </div>
 
 <br>
-<p id="visit-link" >
+<div id="visit-link" >
 	<%= link_to "Add To Sites Visited", "#"%>
-</p>
+</div>
 <div id="visit-section">
-	<p><%= render "visits/form" %></p>
+	<p><%= render "visits/form", data: { turbolinks: false } %></p>
 	<br>
 </div>
 

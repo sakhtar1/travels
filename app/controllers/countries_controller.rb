@@ -12,10 +12,11 @@ class CountriesController < ApplicationController
     @visit = @country.visits.build
     @visit.save
     @next_country = @country.next
-      #respond_to do |format|
-      #format.html { render :show }
-     # format.json { render json: @country, status: 200}
-    #end
+    #binding.pry
+      respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @country, status: 200}
+    end
   end
 
   def continent_order

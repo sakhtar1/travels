@@ -15,22 +15,11 @@ $(function(){
   })
 });
 
+
+
 // JS see more
-$('#see_more').on('click'), function(e) {
-  e.preventdefault();
-  var id = $(this).data('id')
-  $.get('/countries/' + id + '.json', function(data){
-    $("#cont-" + id).text(data["continent"]);
-  })
-}
-// JS see less
-function see_less(){
-      $('#see_less').addClass('hidden');
-      //or
-      $('#cont').addClass('hidden');
-      $('#city').addClass('hidden');
-      $('#see_more').removeClass('hidden');
-}
+
+
 
 /*function see_more(){
       $('#see_more').addClass('hidden');
