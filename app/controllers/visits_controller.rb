@@ -10,7 +10,9 @@ class VisitsController < ApplicationController
   def create
       @country = Country.find(params[:country_id])
       @visit = @country.visits.build(visit_params)
+      binding.pry
       if @visit.save
+
        redirect_to country_path(@country)       
       else
           render country_path(@country), notice: 'Successful Save'

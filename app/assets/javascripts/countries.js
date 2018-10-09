@@ -44,15 +44,15 @@ $(function(){
     $.ajax({
       type: "POST",
       url: this.action,
-      data: $(this).serialize(),
-      success: function(response){
+      data: $(this).serialize()
+      
+
+    }).success(function(response){
         $("#visit_visit_places").val("");
         var $div = $("div.visit")
         $div.append(response); 
       
-      }
-
-    })
+      })
     e.preventDefault();
   })
 })
