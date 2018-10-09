@@ -27,45 +27,11 @@ $(function(){
     $.get('/countries/' + id + '.json', function(datas){
     data = datas["data"].attributes
 
-      $("#cont-" + id).text(data["city"]);
+     $("#cont-" + id).html("Cities Visited: " + "<strong>" + data["city"] + "</strong>");
     
     });
   })
 })
-
-/*function see_less(){
-
-  var id = $(this).data('id')
-      $('.cont-' + id).addClass('hidden');
-      $('.see_less').addClass('hidden');
-      $('.see_more').removeClass('hidden');
-     
-  }
-
-
-// show page, clicking on next and previous to view the following country
-
-
-
-$(function() {
-  $(".js-next").on("click", function() {
- 
-    var nextId = parseInt($(".js-next").attr("data-id"));
-    $.get("/countries/" + nextId, function(data) {
-      var country = data
-      $(".countryCont").html(country["continent"]);
-      $(".countryName").html(country["name"]);
-      $(".countryCity").html(country["city"]);
-      $(".countryDescript").html(country["description"]);
-      // re-set the id to current on the link
-      $(".js-next").attr("data-id", country["id"]);
-      e.preventdefault(); 
-    });
-  });
-});
-
-
-
 
 
 
@@ -90,6 +56,18 @@ $(function(){
     e.preventDefault();
   })
 })
+
+/*function see_less(){
+
+  var id = $(this).data('id')
+      $('.cont-' + id).addClass('hidden');
+      $('.see_less').addClass('hidden');
+      $('.see_more').removeClass('hidden');
+     
+  }
+
+
+
 */
 
 

@@ -1,11 +1,13 @@
 <h2 class= 'title'> Continents </h2>
 <br>
 <br>
-<ul><% @continents.each do |continent| %>
-	<button class="continent"><%= link_to continent.name, continent %></button>
-<%end %>
-<br>
-</ul>
+
+	<ul><% @continents.each do |continent| %>
+		<button class="continent"><%= link_to continent.name, continent %></button>
+	<%end %>
+	<br>
+	</ul>
+
 <br>
 <%= image_tag("https://mbtskoudsalg.com/images/continent-of-africa-png-7.png", :alt => "Continents") %>
 <br>
