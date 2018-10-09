@@ -1,27 +1,30 @@
-<h2 class= 'title'> Bucket List </h2>
 
 
-<p><strong> You can add a country to your bucket list, then go edit it, to add cities/places you want to visit, later by clicking on the country.</strong> </p>
+	<h2 class= 'title'> Bucket List </h2>
 
-<div>
-<%= render "index_form" %>
+<div class= "bucket">
+	<p><strong> You can add a country to your bucket list, then go edit it, to add cities/places you want to visit, later by clicking on the country.</strong> </p>
+
+	<div>
+	<%= render "index_form" %>
+	</div>
+
+	<br>
+	<br>
+
+	<p><strong>These are the countries you want to travel to. If you have travelled to any of the below, check it off and click "TRAVELLED". You can then add the country to your travelled list under <a href="/countries">Countries</a>!</strong></p>
+	<br>
+
+	<div class = "checkbox">
+		<%= render "bucket" %>
+	</div>
+
+	<%= will_paginate @buckets, :page_links => false %>
+
+
+	<br>
+
+	<h5> Go to Countries <a href="/countries"> visited! </a></h5>
+	<h5> Go to <a href="/continents"> Continents! </a></h5>
 </div>
-
-<br>
-
-
-<p> These are the countries you want to travel to. If you have travelled to any of the below, check it off and click "TRAVELLED". You can then add the country to your travelled list under <a href="/countries">Countries</a></p>
-
-<div class = "checkbox">
-	<%= render "bucket" %>
-</div>
-
-<%= will_paginate @buckets, :page_links => false %>
-
-
-<br>
-
-<p><strong> Note**</strong>: If you have visited a country, you can check it off this list, then go to <a href="/countries"> countries</a> you've visited and update your <a href="/countries"> countries</a>  you've travelled to list. </p>
-<h5> Go to Countries <a href="/countries"> visited! </a></h5>
-<h5> Go to <a href="/continents"> Continents! </a></h5>
 

@@ -1,29 +1,38 @@
-<div class = "prev-next">
-	<a href="#" class="back"> Back </a>
+<div class="content">	
+	<div class = "prev-next">	
+		<%= link_to "Next Country", @next_country if !@next_country.nil? %>
+		<br>
+		<a href="#" class="back"> Back </a>
+	</div>
 	<br>
-	<%= link_to "Next Country", @next_country if !@next_country.nil? %>
-</div>
+		
 
-<div class="countryname">
-	<h4 class="countryCont"> <%= @country.continent%></h4>
-	<h5 class="countryName"> Country Visited: <%= @country.name%> </h5>
-	<h5 class="countryCity"> Cities you toured: <%= @country.city%></h5>
-	<h5 class="countryDescript">Description: <%= @country.description%></h5>
-</div>
 
-<br>
-<div id="visit-link" >
-	<%= link_to "Add To Sites Visited", "#"%>
-</div>
-<div id="visit-section">
-	<p><%= render "visits/form", data: { turbolinks: true}  %></p>
+	<div class="countryname">
+		<h4 class="countryCont"> <%= @country.continent%></h4>
+		<h5 class="countryName"> Country Visited: <%= @country.name%> </h5>
+		<h5 class="countryCity"> Cities you toured: <%= @country.city%></h5>
+		<h5 class="countryDescript">Description: <%= @country.description%></h5>
+	</div>
+
 	<br>
+	<div id="visit-link" >
+		<button class= "edit"><%= link_to "Add To Sites Visited", "#"%></button>
+	</div>
+	<div id="visit-section">
+		<p><%= render "visits/form", data: { turbolinks: true}  %></p>
+		<br>
+	</div>
+
+	<br>
+	<p id="visit"><%= render "visits/countryvisit" %></p>
+	<br>
+	<p><%= link_to "Click Here", visitsorder_country_visits_path(@visit.country, @visit) %> to see each attraction ordered by date.</p>
+	
+
+	<button class="edit"><%= link_to "Edit Country", edit_country_path %></button>
+	<br>
+	<br>
+	 <%= button_to "Delete Country", @country, :method => :delete, :class =>"edit", data: {confirm: 'Are you sure you want to delete this country?'} %>
+
 </div>
-
-<br>
-<p id="visit"><%= render "visits/countryvisit" %></p>
-<br>
-<p><%= link_to "Click Here", visitsorder_country_visits_path(@visit.country, @visit) %> to see each attraction ordered by date.</p>
-<p><%= link_to "Edit Country", edit_country_path %></p>
- <%= button_to "Delete Country", @country, :method => :delete %>
-
