@@ -13,18 +13,12 @@ body {
 	padding: 0px;
 }
 
-.mySlides {
-	padding-top: 50px;
-	padding-left: 110px;
-	padding-bottom: 100px;
-	
-}
-
 .title {
 	color: #00008B;
 	font-family: Helvetica, Garamond, sans-serif; 
   font-style: bold;
   font-size: 40px;
+  text-shadow: black;
 }
 
 html {
@@ -127,7 +121,7 @@ div.flip-control a {
 
 .content {
     background-color: #F8F8F8;
-    width: 500px;
+    width: 450px;
     padding: 25px;
 }
 
@@ -142,6 +136,41 @@ div.flip-control a {
   background-color: #F8F8F8;
   width: 300px;
   padding: 25px;
+
+}
+
+.mySlides {
+   width: 100%;
+  z-index: 0;
+  
+}
+.countrySlide {
+   display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+   align-items:center;
+}
+
+.home {
+    
+    width: 75%;
+    padding-right: 25px;
+}
+
+.continent {
+  display: inline-block;
+  border-radius: 2px;
+  background-color: #F8F8F8;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 2px;
 
 }
 

@@ -41,10 +41,10 @@ $(function () {
       var data = datas["data"]
       var bucket = data["attributes"];
  
-      $(".bucketCountry").text("Country: " + bucket["country"]);
-      $(".bucketCity").text("Continent: " + bucket["city"]);
-      $(".bucketDescription").text("Cities you want to visit: " + bucket["description"]);
-      $(".bucketContinent").text("Description: " + bucket["continent"]);
+      $(".bucketCountry").text(bucket["country"]);
+      $(".bucketContinent").text("Continent: " + bucket["continent"]);
+      $(".bucketCity").text("Cities you want to visit: " + bucket["city"]);
+      $(".bucketDescription").text("Description: " + bucket["description"]);
       // re-set the id to current on the link
       $(".next").attr("data-id", data["id"]);
       $(".previous").attr("data-id", data["id"])
@@ -64,10 +64,10 @@ $(function () {
       var data = datas["data"]
       var bucket = data["attributes"];
 
-      $(".bucketCountry").text("Country: " + bucket["country"]);
-      $(".bucketCity").text("Continent: " + bucket["city"]);
-      $(".bucketDescription").text("Cities you want to visit: " + bucket["description"]);
-      $(".bucketContinent").text("Description: " + bucket["continent"]);
+      $(".bucketCountry").text(bucket["country"]);
+      $(".bucketContinent").text("Continent: " + bucket["continent"]);
+      $(".bucketCity").text("Cities you want to visit: " + bucket["city"]);
+      $(".bucketDescription").text("Description: " + bucket["description"]);
       // re-set the id to current on the link
       $(".previous").attr("data-id", data["id"]);
       $(".next").attr("data-id", data["id"]);

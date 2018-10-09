@@ -1,6 +1,6 @@
 <div class="content">
 	<div id=samp>
-		<h1 class="bucketCountry">Country: <%= @bucket.country %></h1>
+		<h1 class="bucketCountry"><%= @bucket.country %></h1>
 		<p class="bucketContinent">Continent: <%= @bucket.continent %></p>
 		<p class="bucketCity">Cities you want to visit: <%= @bucket.city %></p>
 		<p class="bucketDescription">Description: <%= @bucket.description %></p>
@@ -16,7 +16,7 @@
 	    	<button class="next" data-id="<%=@bucket.id%>">Next Country</button>
 	    <% end %>
 		<button class="back"> Back </button>
-		<button><%= link_to "Edit", edit_bucket_path %></button>
+		<button><%= link_to "Edit Country", edit_bucket_path %></button>
 
 	</div>
 </div>
