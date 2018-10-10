@@ -40,7 +40,7 @@ $(function(){
 $(function(){
   $(".edit_visit").on("submit", function(e){
  
-
+    e.preventDefault();
     $.ajax({
       type: "POST",
       url: this.action,
@@ -52,8 +52,10 @@ $(function(){
         var $div = $("div.visit")
         $div.append(response); 
       
+      }).error(function(response){
+        alert("Please try again.", response)
       })
-    e.preventDefault();
+  
   })
 })
 

@@ -7,25 +7,45 @@ $(document).on("click", ".back", function(e){
 
 
 
-// Index page bucket list country submitting dynamically
+/* Object Orient JavaScript constructor function to build a 
+prototype for what an object (country) would look like, including all 
+the properties (id, content, and user). A renderDisplay method is also added to 
+this object. */
+
+function Bucket(data){
+  this.id = data.id;
+  this.country = data.country;
+  
+
+}
+
+Bucket.prototype.renderDisplay = function(){
+  var html = ""
+  html+= "<div><label><input type=\'checkbox\' name=\'checkbox\' id=\'checkbox\' class=\'checkbox\' data-toggle=\'checkbox\'></input><del><strong name = \'check_count\'class=\'check_count\'id=\'check_count\'>" + this.country +"</strong></del></label></div>"
+  $("div.checkbox.check_count").append(html)
+}
 
 $(function(){
   $("#new_bucket").on("submit", function(e){
- 
+    e.preventDefault();
+
 
     $.ajax({
       type: "POST",
       url: this.action,
-      data: $(this).serialize(),
-      success: function(response){
-        $("#bucket_country").val("");
-        var $div = $("div.checkbox.check_count")
-        $div.append(response); 
-      
-      }
+      data: $(this).serialize()
 
-    })
-    e.preventDefault();
+
+      }).success(function(response){
+      
+        $("#bucket_country").val("");
+        var bucket = new Bucket("json");
+        bucket.renderDisplay();
+        
+      }).error(function(response){
+        alert("Please try again.", response)
+      })
+  
   })
 })
 
@@ -81,7 +101,7 @@ $(function () {
 
 // checkbox
 
-function check() {
+/*function check() {
     document.getElementById("checkbox").checked = true;
 }
 
@@ -99,7 +119,7 @@ function is_checked(){
    }
    $('.check_count', '.checkbox').fadeOut();
   });
-}
+}*/
 
 
 

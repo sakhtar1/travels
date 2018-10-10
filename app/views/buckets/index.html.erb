@@ -6,7 +6,7 @@
 	<p><strong> You can add a country to your bucket list, then go edit it, to add cities/places you want to visit, later by clicking on the country.</strong> </p>
 
 	<div>
-	<%= render "index_form" %>
+	<%= render "index_form", data: { turbolinks: false } %>
 	</div>
 
 	<br>
@@ -19,7 +19,7 @@
 		<%= render "bucket" %>
 	</div>
 
-	<%= will_paginate @buckets, :page_links => false %>
+	<%#= will_paginate @buckets, :page_links => false %>
 
 
 	<br>
