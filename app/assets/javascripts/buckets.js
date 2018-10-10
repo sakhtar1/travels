@@ -9,7 +9,7 @@ $(document).on("click", ".back", function(e){
 
 /* Object Orient JavaScript constructor function to build a 
 prototype for what an object (country) would look like, including all 
-the properties (id, content, and user). A renderDisplay method is also added to 
+the properties (id, content, and user). A renderDiv method is also added to 
 this object. */
 
 function Bucket(data){
@@ -19,7 +19,7 @@ function Bucket(data){
 
 }
 
-Bucket.prototype.renderDisplay = function(){
+Bucket.prototype.renderDiv = function(){
   var html = ""
   html+= "<div><label><input type=\'checkbox\' name=\'checkbox\' id=\'checkbox\' class=\'checkbox\' data-toggle=\'checkbox\'></input><del><strong name = \'check_count\'class=\'check_count\'id=\'check_count\'>" + this.country +"</strong></del></label></div>"
   $("div.checkbox.check_count").append(html)
@@ -40,7 +40,7 @@ $(function(){
       
         $("#bucket_country").val("");
         var bucket = new Bucket("json");
-        bucket.renderDisplay();
+        bucket.renderDiv();
         
       }).error(function(response){
         alert("Please try again.", response)
