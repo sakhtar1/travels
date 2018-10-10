@@ -151,6 +151,24 @@ div.flip-control a {
     display: flex;
    align-items:center;
 }
+.roadSlide {
+   display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+   float: right;
+   width: 60%;
+   padding: 75px;
+}
+.imageBucket{
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+   float: right;
+   width: 80%;
+   padding: 75px;
+}
 
 .home {
     
