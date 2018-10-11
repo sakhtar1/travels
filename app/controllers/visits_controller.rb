@@ -10,9 +10,9 @@ class VisitsController < ApplicationController
   def create
       @country = Country.find(params[:country_id])
       @visit = @country.visits.build(visit_params)
-      binding.pry
+      
       if @visit.save
-
+       # binding.pry
        redirect_to country_path(@country)       
       else
           render country_path(@country), notice: 'Successful Save'
@@ -25,7 +25,13 @@ class VisitsController < ApplicationController
   def update
     @visit.update(visit_params)
 
-    redirect_to country_path(@visit.country)
+    respond_to do |format|
+        format.html { render :index }
+        format.json { redirect_to country_path(@visit.country), notice: 'Successfully created.'}
+      end
+    
+
+    
   end
 
   def visitsorder

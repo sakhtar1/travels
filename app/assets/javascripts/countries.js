@@ -11,7 +11,7 @@ $(document).on("click", "a.back", function(e){
 $(function(){
   $("#visit-link").on("click", function(e) {
     $('#visit-section').fadeToggle();
-    e.preventdefault();
+    e.preventDefault();
   })
 });
 
@@ -25,7 +25,7 @@ $(function(){
     var id = $(this).data('id')
 
     $.get('/countries/' + id + '.json', function(datas){
-    data = datas["data"].attributes
+    var data = datas["data"].attributes
 
      $("#cont-" + id).html("Cities Visited: " + "<strong>" + data["city"] + "</strong>");
     
@@ -37,27 +37,48 @@ $(function(){
 
 // Visit form submit
 
+function Visit(data){
+  
+  this.id = data.id;
+  this.visit_places = data.visit_places;
+  this.visit_date = data.visit_date;
+
+}
+
+Visit.prototype.renderDiv = function(){
+  var html = ""
+  //var del = $('.destroy').html('<a href="http://www.google.com">Google</a>');
+  html+= "<h5> Place Visited: " + this.visit_places + "</h5><h5>Date: " + this.visit_date + "</h5>"
+  $("div#visit").append(html)
+}
+
 $(function(){
   $(".edit_visit").on("submit", function(e){
- 
+
     e.preventDefault();
     $.ajax({
       type: "POST",
-      url: this.action,
+      url: this.action + ".json",
       data: $(this).serialize()
       
 
-    }).success(function(response){
+    }).success(function(json){
+      debugger
         $("#visit_visit_places").val("");
-        var $div = $("div.visit")
-        $div.append(response); 
+        var visit = new Visit(json);
+        visit.renderDiv();
+       
       
-      }).error(function(response){
-        alert("Please try again.", response)
+      
+        
+        
+     
       })
-  
+   
   })
 })
+
+
 
 /*function see_less(){
 

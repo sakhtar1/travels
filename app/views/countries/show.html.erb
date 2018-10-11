@@ -18,12 +18,12 @@
 		<button class= "edit"><%= link_to "Add To Sites Visited", "#"%></button>
 	</div>
 	<div id="visit-section">
-		<p><%= render "visits/form", data: { turbolinks: true }%></p>
+		<p><%= render "visits/form"%></p>
 		<br>
 	</div>
 
 	<br>
-	<p id="visit"><%= render "visits/countryvisit" %></p>
+	<div id="visit"><%= render "visits/countryvisit" %></div>
 	<br>
 	<p><%= link_to "Click Here", visitsorder_country_visits_path(@visit.country, @visit) %> to see each attraction ordered by date.</p>
 	

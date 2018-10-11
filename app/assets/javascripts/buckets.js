@@ -21,8 +21,8 @@ function Bucket(data){
 
 Bucket.prototype.renderDiv = function(){
   var html = ""
-  html+= "<div><label><input type=\'checkbox\' name=\'checkbox\' id=\'checkbox\' class=\'checkbox\' data-toggle=\'checkbox\'></input><del><strong name = \'check_count\'class=\'check_count\'id=\'check_count\'>" + this.country +"</strong></del></label></div>"
-  $("div.checkbox.check_count").append(html)
+  html+= "<label><input type=\'checkbox\' name=\'checkbox\' id=\'checkbox\' data-toggle=\'checkbox\'></input><del><strong name = \'check_count\'class=\'check_count\'id=\'check_count\'>" + this.country + "</strong></del></label>"
+  $(".checkbox").append(html)
 }
 
 $(function(){
@@ -32,18 +32,16 @@ $(function(){
 
     $.ajax({
       type: "POST",
-      url: this.action,
+      url: this.action + ".json",
       data: $(this).serialize()
 
 
-      }).success(function(response){
-      
+      }).success(function(json){
+        debugger
         $("#bucket_country").val("");
-        var bucket = new Bucket("json");
+        var bucket = new Bucket(json);
         bucket.renderDiv();
         
-      }).error(function(response){
-        alert("Please try again.", response)
       })
   
   })

@@ -1,6 +1,6 @@
 
 <%= form_for([@country, @visit]) do |f| %>
-	<form action='/countries' method='POST'>
+	
 	<%= f.label :'Additional places visited:' %>
 	  <br>
 	 <%= f.text_area :visit_places%>
@@ -13,5 +13,5 @@
 	  <br>
 	  <%= f.submit "Add"%>
 	<% end %>
-</form>
+
 

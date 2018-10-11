@@ -9,15 +9,16 @@ class CountriesController < ApplicationController
 
   def show
     @country = Country.find_by(id: params[:id])
-    #binding.pry
+    @next_country = @country.next
     @visit = @country.visits.build
     @visit.save
-    @next_country = @country.next
+     
     #binding.pry
       respond_to do |format|
       format.html { render :show }
       format.json { render json: @country, status: 200}
     end
+    #binding.pry
   end
 
   def continent_order
