@@ -1,7 +1,9 @@
 class VisitsController < ApplicationController
-  before_action :set_visit, only: [:show, :edit, :update, :destroy]
+ 
   
   def show
+      #binding.pry
+      @visit = Visit.find(params[:id])
       user = current_user
       @visit.user_id = user.id
       @country = Country.find_by(id: params[:country_id])
@@ -12,21 +14,29 @@ class VisitsController < ApplicationController
   end 
 
   def create
-      @country = Country.find(params[:country_id])
-      @visit = @country.visits.build(visit_params)
+      #@country = Country.find(params[:country_id])
+      #@visit = @country.visits.build(visit_params)
       
-      if @visit.save
+      #if @visit.save
        # binding.pry
-       redirect_to country_path(@country)       
-      else
-          render country_path(@country), notice: 'Successful Save'
-      end
+       #respond_to do |format|
+       # format.html { render :create }
+       #format.json { redirect_to country_path(@visit.country), notice: 'Successfully created.'}
+        #end
+          
+     # else
+         # render country_path(@country), notice: 'Successful Save'
+      #end
   end
 
   def edit
+    @visit = Visit.find(params[:id])
+    #binding.pry
   end
 
   def update
+    #binding.pry
+    @visit = Visit.find(params[:id])
     @visit.update(visit_params)
 
     respond_to do |format|
@@ -45,6 +55,7 @@ class VisitsController < ApplicationController
 
 
   def destroy
+    @visit = Visit.find(params[:id])
     @visit.destroy
     flash[:notice] = "Visit deleted."
     redirect_to country_path(@visit.country)
@@ -52,9 +63,6 @@ class VisitsController < ApplicationController
 
   private
 
-    def set_visit
-      @visit = Visit.find(params[:id])
-    end
     def visit_params
       params.require(:visit).permit(
         :visit_date,

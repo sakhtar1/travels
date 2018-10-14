@@ -52,7 +52,56 @@ $(function () {
   });
 });
 
+/*Object Orient JavaScript constructor function to build a 
+prototype for what an object (country) would look like, including all 
+the properties (id, content, and user). A renderDiv method is also added to 
+this object. */
 
+function Bucket(data){
+  
+  this.id = data.id;
+  this.country = data.country;
+  this.user_id = data.user_id;
+
+
+}
+
+Bucket.prototype.renderDiv = function(){
+   //console.log("this",this)
+
+  var html = ""
+  html+= "<label><input type=\'checkbox\' name=\'checkbox\' id=\'checkbox\' data-toggle=\'checkbox\'></input><del><strong name = \'check_count\'class=\'check_count\'id=\'check_count\'>" + "<a href=/buckets/" + this.id+ ">" + this.country + "</strong></del></label><form class=\'button_to\' method=\'post\' action=\'buckets/\'" + this.id + "><input type=\'hidden\' name=\'_method\' value=\'delete\'><input class=\'destroy\' type=\'submit\'value=\'TRAVELLED!\'></form>"
+  $(".checkbox").append(html)
+}
+
+$(function(){
+  $("#new_bucket").on("submit", function(e){
+     e.preventDefault();
+     var $form = $(this);
+     var action = $form.attr("action");
+     var params = $form.serialize();
+
+     debugger
+    $.ajax({
+      url: action,
+      data: params,
+      dataType: "json",
+      method: "POST"
+
+
+      }).success(function(response){
+        //debugger
+        bucket_count = response["data"]["attributes"]
+        $("#bucket_country").val("");
+        var bucket = new Bucket(bucket_count);
+
+        //console.log("bucket", bucket)
+        bucket.renderDiv();
+        
+      })
+  
+  })
+})
 
 
 
@@ -105,45 +154,7 @@ function is_checked(){
 })
 
 
-/* Object Orient JavaScript constructor function to build a 
-prototype for what an object (country) would look like, including all 
-the properties (id, content, and user). A renderDiv method is also added to 
-this object. */
-
-/*function Bucket(data){
-  this.id = data.id;
-  this.country = data.country;
-  
-
-}
-
-Bucket.prototype.renderDiv = function(){
-  var html = ""
-  html+= "<label><input type=\'checkbox\' name=\'checkbox\' id=\'checkbox\' data-toggle=\'checkbox\'></input><del><strong name = \'check_count\'class=\'check_count\'id=\'check_count\'>" + this.country + "</strong></del></label>"
-  $(".checkbox").append(html)
-}
-
-$(function(){
-  $("#new_bucket").on("submit", function(e){
-    e.preventDefault();
-
-
-    $.ajax({
-      type: "POST",
-      url: this.action + ".json",
-      data: $(this).serialize()
-
-
-      }).success(function(json){
-        debugger
-        $("#bucket_country").val("");
-        var bucket = new Bucket(json);
-        bucket.renderDiv();
-        
-      })
-  
-  })
-})
+/* 
 */
 
 

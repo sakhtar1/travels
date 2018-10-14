@@ -3,9 +3,9 @@ class BucketsController < ApplicationController
 
 	def index
 		@user = current_user
-		#@buckets = Bucket.all
+		@buckets = Bucket.all
 		@bucket = Bucket.new
-		@buckets = Bucket.paginate(:page => params[:page], :per_page => 10)
+		#@buckets = Bucket.paginate(:page => params[:page], :per_page => 10)
 		#respond_to do |format|
 	    #  format.html { render :index }
 	     # format.json { render json: @buckets, status: 200}
@@ -25,7 +25,11 @@ class BucketsController < ApplicationController
 		 @bucket = current_user.buckets.build(bucket_params) 
       if @bucket.save
         current_user.buckets << @bucket
-		redirect_to buckets_path, notice: 'Successfully created.'
+        respond_to do |format|
+	      format.html { render :show }
+	      format.json { render json: @bucket, status: 200}
+    	end
+		
     	
       else
         render buckets_path
