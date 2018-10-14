@@ -47,8 +47,9 @@ function Visit(data){
 
 Visit.prototype.renderDiv = function(){
   var html = ""
-  //var del = $('.destroy').html('<a href="http://www.google.com">Google</a>');
-  html+= "<h5> Place Visited: " + this.visit_places + "</h5><h5>Date: " + this.visit_date + "</h5>"
+  //<form class="button_to" method="post" action="/countries/28/visits/2189"><input type="hidden" name="_method" value="delete"><input class="destroy" type="submit" value="Delete"><input type="hidden" name="authenticity_token" value="+f/nD8y3VSyVBoKrmxM+SSi/+s/+a+D/n0etDMdfuwXb4D1Pl9mccLI+Fder5yo+zoaxhfU9VSzS5BBSFg2YrQ=="></form>
+  //var del = "<form class=\'button_to\' method=\'post\' action=\'/countries/25/visits/157\'><input type=\'hidden\' name=\'_method\' value=\'delete\'><input class=\'destroy\' type=\'submit\'value=\'Delete\'><input type=\'hidden\' name=\'authenticity_token\' value=\'VSYA4XiUkfs1t1i77WaeIXqyEu2urdCB7LpbTqh3QkZ3OdqhI/pYpxKPz8fdkopWnItZp6X7ZVKhGeYQeSVh7g==\'></form>
+  html+= "<h5> Place Visited: <a href=\'countries/28/visits/2186\'>" + this.visit_places + "</a> </h5><h5>Date: " + this.visit_date + "</h5><h5><form class=\'button_to\' method=\'post\' action=\'/countries/25/visits/157\'><input type=\'hidden\' name=\'_method\' value=\'delete\'><input class=\'destroy\' type=\'submit\'value=\'Delete\'></form>"
   $("div#visit").append(html)
 }
 
@@ -62,10 +63,10 @@ $(function(){
       data: $(this).serialize()
       
 
-    }).success(function(json){
+    }).success(function(response){
       debugger
         $("#visit_visit_places").val("");
-        var visit = new Visit(json);
+        var visit = new Visit(response);
         visit.renderDiv();
        
       

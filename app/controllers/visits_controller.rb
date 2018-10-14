@@ -5,6 +5,11 @@ class VisitsController < ApplicationController
       user = current_user
       @visit.user_id = user.id
       @country = Country.find_by(id: params[:country_id])
+        respond_to do |format|
+        format.html { render :show }
+        format.json { redirect_to country_path(@country) }
+      end
+    
   end 
 
   def create
