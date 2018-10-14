@@ -11,17 +11,18 @@
 
 	<br>
 	<br>
+		<div><img class="imageBucket" src="https://122985-351824-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2016/04/The-Bucket-List-Logo.jpg"></div>
 
 	<p><strong>These are the countries you want to travel to. If you have travelled to any of the below, check it off and click "TRAVELLED". You can then add the country to your travelled list under <a href="/countries">Countries</a>!</strong></p>
 	<br>
 
-	<div><img class="imageBucket" src="https://122985-351824-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2016/04/The-Bucket-List-Logo.jpg"></div>
+
 
 	<div class = "checkbox">
 		<%= render "bucket" %>
 	</div>
 
-	<%#= will_paginate @buckets, :page_links => false %>
+	<%= will_paginate @buckets, :page_links => false %>
 
 
 	<br>
