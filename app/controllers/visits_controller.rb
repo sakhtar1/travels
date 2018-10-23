@@ -38,11 +38,11 @@ class VisitsController < ApplicationController
     #binding.pry
     @visit = Visit.find(params[:id])
     @visit.update(visit_params)
-
-    respond_to do |format|
-        format.html { render :index }
-        format.json { redirect_to country_path(@visit.country), notice: 'Successfully created.'}
-      end
+    redirect_to country_path(@visit.country), notice: 'Successfully created.'
+    #respond_to do |format|
+     #   format.html { render :index }
+      #  format.json { redirect_to country_path(@visit.country), notice: 'Successfully created.'}
+      #end
     
 
     

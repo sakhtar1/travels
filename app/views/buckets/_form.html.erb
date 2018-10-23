@@ -37,6 +37,6 @@
   <%= f.text_area :description %>
   <br>
   <br>
-  <%= f.submit @bucket.persisted? ? "Update Bucket" : "Submit Bucket" %>
+  <%= f.submit @bucket.persisted? ? "Update Bucket" : "Submit Bucket", :class => 'submit_now'%>
 </div>
 <% end %>

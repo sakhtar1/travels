@@ -7,8 +7,6 @@ $(document).on("click", ".back", function(e){
 
 
 
-
-
 // Clicking next on show page to view next country
 
 $(function () {
@@ -52,26 +50,29 @@ $(function () {
   });
 });
 
+
+
+
 /*Object Orient JavaScript constructor function to build a 
 prototype for what an object (country) would look like, including all 
-the properties (id, content, and user). A renderDiv method is also added to 
+the properties (id, country, and user). A renderDiv method is also added to 
 this object. */
 
 function Bucket(data){
   
   this.id = data.id;
-  this.country = data.country;
-  this.user_id = data.user_id;
+  this.country = data.attributes.country;
+  this.userId = data.attributes.user_id;
 
 
 }
 
 Bucket.prototype.renderDiv = function(){
-   //console.log("this",this)
+   console.log("this",this)
 
-  var html = ""
-  html+= "<label><input type=\'checkbox\' name=\'checkbox\' id=\'checkbox\' data-toggle=\'checkbox\'></input><del><strong name = \'check_count\'class=\'check_count\'id=\'check_count\'>" + "<a href=/buckets/" + this.id+ ">" + this.country + "</strong></del></label><form class=\'button_to\' method=\'post\' action=\'buckets/\'" + this.id + "><input type=\'hidden\' name=\'_method\' value=\'delete\'><input class=\'destroy\' type=\'submit\'value=\'TRAVELLED!\'></form>"
-  $(".checkbox").append(html)
+  var html = "";
+  html+= "<div class =\'checkbox\'><h5><div><label><input type=\'checkbox\' name=\'checkbox\' id=\'checkbox\' data-toggle=\'checkbox\'></input><del><strong name = \'check_count\'class=\'check_count\'id=\'check_count\'>" + "<a href=/buckets/" + this.id+ ">" + this.country + "</strong></del></label><div id=\'del_ete\'><form class=\'button_to\' method=\'post\' action=\'buckets/\'" + this.id + "><input type=\'hidden\' name=\'_method\' value=\'delete\'><input data-confirm=\'Are you sure you want to check off this country?\' type=\'submit\'value=\'TRAVELLED!\'></form></div></div></h5></div>"
+  $(".checkbox").append(html);
 }
 
 $(function(){
@@ -79,9 +80,10 @@ $(function(){
      e.preventDefault();
      var $form = $(this);
      var action = $form.attr("action");
+     // converting form from object to string
      var params = $form.serialize();
 
-     debugger
+     //debugger
     $.ajax({
       url: action,
       data: params,
@@ -91,15 +93,16 @@ $(function(){
 
       }).success(function(response){
         //debugger
-        bucket_count = response["data"]["attributes"]
+        bucketCount = response["data"]
         $("#bucket_country").val("");
-        var bucket = new Bucket(bucket_count);
+        var bucketNew = new Bucket(bucketCount);
 
-        //console.log("bucket", bucket)
-        bucket.renderDiv();
+        //debugger
+        //console.log("bucketNew", bucketNew)
+        bucketNew.renderDiv();
         
       })
-  
+    $("#submit_now").disabled = false;
   })
 })
 
@@ -155,6 +158,8 @@ function is_checked(){
 
 
 /* 
+
+
 */
 
 
