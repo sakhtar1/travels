@@ -62,7 +62,7 @@ function Bucket(data){
   
   this.id = data.id;
   this.country = data.attributes.country;
-  this.userId = data.attributes.user_id;
+  //this.userId = data.attributes.user_id;
 
 
 }
@@ -77,7 +77,10 @@ Bucket.prototype.renderDiv = function(){
 
 $(function(){
   $("#new_bucket").on("submit", function(e){
+
      e.preventDefault();
+     e.stopImmediatePropagation();
+
      var $form = $(this);
      var action = $form.attr("action");
      // converting form from object to string
@@ -98,69 +101,19 @@ $(function(){
         var bucketNew = new Bucket(bucketCount);
 
         //debugger
-        //console.log("bucketNew", bucketNew)
+        console.log("bucketNew", bucketNew)
         bucketNew.renderDiv();
-        
+         $("#click_now").off();
       })
-    $("#submit_now").disabled = false;
+      //return false
+      //$("#click_now").off("submit").click(myHandler);
+      // $('#submit_now').removeAttr('data-disable-with');
+    //$("#click_now").disabled = true; return true;
   })
 })
 
 
 
-// checkbox
-
-/*function check() {
-    document.getElementById("checkbox").checked = true;
-}
-
-function uncheck() {
-    document.getElementById("checkbox").checked = false;
-}
-
-
-function is_checked(){
-  $('.checkbox').change(function() {
-   if ($(this).attr("checked")) {
-
-      $('.check_count', '.checkbox').fadeIn();
-      return;
-   }
-   $('.check_count', '.checkbox').fadeOut();
-  });
-}*/
-
-
-
-
-
-// index page, clicking on see more to view continent and cities
-
-/*$(function(){
-  $(".js-see_more").on("click", function(e){
- 
-
-    $.ajax({
-      type: "GET",
-      url: this.action,
-      data: $(this).serialize(),
-      var id = $(this).data("id");
-      success: function(response){
-        var $div = $("div.buckets")
-       $($div + id).text(data); 
-      
-      }
-
-    })
-    e.preventDefault();
-  })
-})
-
-
-/* 
-
-
-*/
 
 
 
