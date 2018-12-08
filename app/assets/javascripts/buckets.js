@@ -5,6 +5,11 @@ $(document).on("click", ".back", function(e){
     e.preventDefault()
   })
 
+$(document).on("click", ".forward", function(e){
+    parent.history.forward()
+    e.preventDefault()
+  })
+
 
 
 // Clicking next on show page to view next country
@@ -71,15 +76,16 @@ Bucket.prototype.renderDiv = function(){
    console.log("this",this)
 
   var html = "";
-  html+= "<div class =\'checkbox\'><h5><div><label><input type=\'checkbox\' name=\'checkbox\' id=\'checkbox\' data-toggle=\'checkbox\'></input><del><strong name = \'check_count\'class=\'check_count\'id=\'check_count\'>" + "<a href=/buckets/" + this.id+ ">" + this.country + "</strong></del></label><div id=\'del_ete\'><form class=\'button_to\' method=\'post\' action=\'buckets/\'" + this.id + "><input type=\'hidden\' name=\'_method\' value=\'delete\'><input data-confirm=\'Are you sure you want to check off this country?\' type=\'submit\'value=\'TRAVELLED!\'></form></div></div></h5></div>"
+  html+= "<h5><div><label><input type=\'checkbox\' name=\'checkbox\' id=\'checkbox\' data-toggle=\'checkbox\'></input><del><strong name = \'check_count\'class=\'check_count\'id=\'check_count\'>" + "<a href=/buckets/" + this.id+ ">" + this.country + "</strong></del></label><div id=\'del_ete\'><form class=\'button_to\' data-method=\'delete\' href=\'buckets/\'"+this.id + "><input type=\'hidden\' name=\'_method\' value=\'delete\'><input data-confirm=\'Are you sure you want to check off this country?\' data-method=\'delete\' type=\'submit\' value=\'TRAVELLED!\'></form></div></div></h5>"
   $(".checkbox").append(html);
 }
 
 $(function(){
-  $("#new_bucket").on("submit", function(e){
-
+  $(".new_bucket").on("submit", function(e){
+   
      e.preventDefault();
-     e.stopImmediatePropagation();
+     e.stopPropagation();
+
 
      var $form = $(this);
      var action = $form.attr("action");
@@ -91,21 +97,28 @@ $(function(){
       url: action,
       data: params,
       dataType: "json",
-      method: "POST"
+      method: "POST",
+      
+
 
 
       }).success(function(response){
+        
         //debugger
         bucketCount = response["data"]
         $("#bucket_country").val("");
         var bucketNew = new Bucket(bucketCount);
 
-        //debugger
+        
         console.log("bucketNew", bucketNew)
         bucketNew.renderDiv();
-         $("#click_now").off();
+        
+    
+        //debugger
+         
       })
-      //return false
+       // 
+        return false
       //$("#click_now").off("submit").click(myHandler);
       // $('#submit_now').removeAttr('data-disable-with');
     //$("#click_now").disabled = true; return true;
