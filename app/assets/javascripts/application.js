@@ -16,4 +16,21 @@
 
 
 
+ $(() => {
+  getContinents() 
+})
+
+//load countries via ajax
+ function getContinents() {
+  $.ajax({
+    url: '/continents',
+    dataType: 'json'
+  }).success(function (data) {
+    console.log('data', data);
+    //debugger
+
+  })
+}
+
+
 
