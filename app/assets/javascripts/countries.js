@@ -1,4 +1,19 @@
+ 
+ $(() => {
+  getCountries() 
+})
 
+//load countries via ajax
+ function getCountries() {
+  $.ajax({
+    url: '/countries',
+    dataType: 'json'
+  }).success(function (data) {
+    console.log('data', data);
+    //debugger
+
+  })
+}
 // Navigate to previous page when 'back' link clicked
   
 $(document).on("click", "a.back", function(e){

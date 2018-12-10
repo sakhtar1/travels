@@ -4,6 +4,10 @@ class CountriesController < ApplicationController
   def index   
     @user = current_user
     @countries = Country.all 
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @country, status: 200}
+    end
     
   end
 

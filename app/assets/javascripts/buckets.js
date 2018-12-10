@@ -1,9 +1,62 @@
+ 
+ $(() => {
+  deleteBucket()
+  getBuckets()
+})
+
+ //delete bucket
+
+
+function deleteBucket() {
+  $('form.button_to').on('click', function (event) {
+    event.preventDefault()
+    let action = this.action
+    let id = event.target.id
+
+    $.ajax({
+      type: 'delete',
+      url: action,
+      data: { bucket: { id: id } },
+      dataType: 'json'
+    }).success(function (response) {
+      console.log("response: ", response);
+
+    }).error(error => {
+      console.log(error);
+    })
+  })
+}
+
+//load countries via ajax
+
+function getBuckets() {
+  $.ajax({
+    url: '/buckets',
+    dataType: 'json'
+  }).success(function (data) {
+    console.log('data', data);
+    //debugger
+
+  })
+}
+
+
+
+  // reload page when delete is clicked
+
+$(document).on("click", "form.button_to", function(e){
+  location.reload();
+    e.preventDefault()
+  })
+
   // navigate to previous page when 'back' link clicked
   
 $(document).on("click", ".back", function(e){
     parent.history.back()
     e.preventDefault()
   })
+
+  // navigate to previous page when 'back' link clicked
 
 $(document).on("click", ".forward", function(e){
     parent.history.forward()
@@ -58,6 +111,8 @@ $(function () {
 
 
 
+
+
 /*Object Orient JavaScript constructor function to build a 
 prototype for what an object (country) would look like, including all 
 the properties (id, country, and user). A renderDiv method is also added to 
@@ -72,11 +127,12 @@ function Bucket(data){
 
 }
 
+
 Bucket.prototype.renderDiv = function(){
    console.log("this",this)
 
   var html = "";
-  html+= "<h5><div><label><input type=\'checkbox\' name=\'checkbox\' id=\'checkbox\' data-toggle=\'checkbox\'></input><del><strong name = \'check_count\'class=\'check_count\'id=\'check_count\'>" + "<a href=/buckets/" + this.id+ ">" + this.country + "</strong></del></label><div id=\'del_ete\'><form class=\'button_to\' data-method=\'delete\' href=\'buckets/\'"+this.id + "><input type=\'hidden\' name=\'_method\' value=\'delete\'><input data-confirm=\'Are you sure you want to check off this country?\' data-method=\'delete\' type=\'submit\' value=\'TRAVELLED!\'></form></div></div></h5>"
+  html+= "<h5><div><label><input type=\'checkbox\' name=\'checkbox\' id=\'checkbox\' data-toggle=\'checkbox\'></input><del><strong name = \'check_count\'class=\'check_count\'id=\'check_count\'>" + "<a href=/buckets/" + this.id+ ">" + this.country + "</strong></del></label><div id=\'del_ete\'><form class=\'button_to\' data-method=\'delete\' href=\'buckets/\'"+this.id + "><input type=\'hidden\' name=\'_method\' value=\'delete\'><input data-confirm=\'Are you sure you want to check off this country?\' id="+this.id+"data-method=\'delete\' type=\'submit\' value=\'TRAVELLED!\'></form></div></div></h5>"
   $(".checkbox").append(html);
 }
 
@@ -92,7 +148,6 @@ $(function(){
      // converting form from object to string
      var params = $form.serialize();
 
-     //debugger
     $.ajax({
       url: action,
       data: params,
@@ -104,7 +159,7 @@ $(function(){
 
       }).success(function(response){
         
-        //debugger
+
         bucketCount = response["data"]
         $("#bucket_country").val("");
         var bucketNew = new Bucket(bucketCount);
@@ -114,14 +169,10 @@ $(function(){
         bucketNew.renderDiv();
         
     
-        //debugger
+
          
       })
-       // 
-        return false
-      //$("#click_now").off("submit").click(myHandler);
-      // $('#submit_now').removeAttr('data-disable-with');
-    //$("#click_now").disabled = true; return true;
+     
   })
 })
 
