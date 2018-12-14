@@ -1,11 +1,12 @@
  
+// listeners
  $(() => {
   deleteBucket()
   getBuckets()
 })
 
- //delete bucket
 
+ //delete bucket
 
 function deleteBucket() {
   $('form.button_to').on('click', function (event) {
@@ -28,6 +29,7 @@ function deleteBucket() {
   })
 }
 
+
 //load countries via ajax
 
 function getBuckets() {
@@ -41,8 +43,6 @@ function getBuckets() {
 
   })
 }
-
-
 
   // reload page when delete is clicked
 
@@ -71,10 +71,10 @@ $(document).on("click", ".forward", function(e){
 
 $(function () {
   $(".next").on("click", function() {
-    var nextId = parseInt($(".next").attr("data-id")) + 1;
+    let nextId = parseInt($(".next").attr("data-id")) + 1;
     $.get("/buckets/" + nextId + ".json", function(datas) {
-      var data = datas["data"];
-      var bucket = data["attributes"];
+      let data = datas["data"];
+      let bucket = data["attributes"];
  
       $(".bucketCountry").text(bucket["country"]);
       $(".bucketContinent").text("Continent: " + bucket["continent"]);
@@ -94,10 +94,10 @@ $(function () {
 
 $(function () {
   $(".previous").on("click", function() {
-    var previousId = parseInt($(".previous").attr("data-id")) - 1;
+    let previousId = parseInt($(".previous").attr("data-id")) - 1;
     $.get("/buckets/" + previousId + ".json", function(datas) {
-      var data = datas["data"]
-      var bucket = data["attributes"];
+      let data = datas["data"]
+      let bucket = data["attributes"];
 
       $(".bucketCountry").text(bucket["country"]);
       $(".bucketContinent").text("Continent: " + bucket["continent"]);
@@ -106,6 +106,8 @@ $(function () {
       // re-set the id to current on the link
       $(".previous").attr("data-id", data["id"]);
       $(".next").attr("data-id", data["id"]);
+      
+
     });
   });
 });
@@ -124,16 +126,13 @@ function Bucket(data){
   
   this.id = data.id;
   this.country = data.attributes.country;
-  //this.userId = data.attributes.user_id;
-
-
 }
 
 
 Bucket.prototype.renderDiv = function(){
    console.log("this",this)
 
-  var html = "";
+  let html = "";
     html+= `<h5> 
                 <label>
                   <input type=checkbox name=checkbox id=checkbox data-toggle=checkbox></input>
@@ -151,7 +150,6 @@ Bucket.prototype.renderDiv = function(){
           </h5>`
   $(".checkbox").append(html);
 
-
 }
 
 $(function(){
@@ -160,11 +158,10 @@ $(function(){
      e.preventDefault();
      e.stopPropagation();
 
-
-     var $form = $(this);
-     var action = $form.attr("action");
+     let $form = $(this);
+     let action = $form.attr("action");
      // converting form from object to string
-     var params = $form.serialize();
+     let params = $form.serialize();
 
     $.ajax({
       url: action,
@@ -172,24 +169,16 @@ $(function(){
       data: params,
       dataType: "json",
       method: "POST",
-      
-
-
-
-      }).success(function(response){
-        
+    }).success(function(response){        
 
         bucketCount = response["data"]
         $("#bucket_country").val("");
-        var bucketNew = new Bucket(bucketCount);
+        let bucketNew = new Bucket(bucketCount);
 
         
         console.log("bucketNew", bucketNew)
         bucketNew.renderDiv();
-        
-    
-
-         
+       
       })
      
   })

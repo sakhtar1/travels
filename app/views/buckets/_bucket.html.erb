@@ -5,7 +5,7 @@
 			<label><input type="checkbox" name="checkbox" id="checkbox" data-toggle="checkbox"></input>
 
 
-				<del><strong name="check_count" class="check_count" id="check_count"><%= link_to bucket.country, bucket %></strong></del></label>
+				<del><strong name="check_count" class="check_count" id="check_count"><%= link_to bucket.country, bucket, id: bucket.id  %></strong></del></label>
 
 
 			<div id="del_ete" visibility:hidden><%= button_to "TRAVELLED!", bucket, :method => :delete,  data: {confirm: 'Are you sure you want to check off this country?'}, id: bucket.id %></div>
