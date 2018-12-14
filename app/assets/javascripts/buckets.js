@@ -16,8 +16,9 @@ function deleteBucket() {
     $.ajax({
       type: 'delete',
       url: action,
+      cache: false,
       data: { bucket: { id: id } },
-      dataType: 'json'
+      dataType: 'json',
     }).success(function (response) {
       console.log("response: ", response);
 
@@ -32,7 +33,8 @@ function deleteBucket() {
 function getBuckets() {
   $.ajax({
     url: '/buckets',
-    dataType: 'json'
+    dataType: 'json',
+    cache: false
   }).success(function (data) {
     console.log('data', data);
     //debugger
@@ -132,13 +134,12 @@ Bucket.prototype.renderDiv = function(){
    console.log("this",this)
 
   var html = "";
-    html+= `<h5>
-           
+    html+= `<h5> 
                 <label>
                   <input type=checkbox name=checkbox id=checkbox data-toggle=checkbox></input>
                   <del>
                     <strong name =check_count class=check_count id= check_count>
-                  <a href=/buckets/" ${this.id}> ${this.country}</strong>
+                  <a href=/buckets/${this.id}> ${this.country}</strong>
                   </del>
                 </label>
               <div id=del_ete>
@@ -146,8 +147,7 @@ Bucket.prototype.renderDiv = function(){
                   <input type=hidden name=_method value=delete>
                   <input data-confirm= "Are you sure you want to check off this country?" id=${this.id} data-method=delete type=submit value=TRAVELLED!>
                 </form>
-              </div>
-          
+              </div>      
           </h5>`
   $(".checkbox").append(html);
 
@@ -168,6 +168,7 @@ $(function(){
 
     $.ajax({
       url: action,
+      cache: false,
       data: params,
       dataType: "json",
       method: "POST",

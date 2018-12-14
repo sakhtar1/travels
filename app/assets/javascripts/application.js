@@ -24,13 +24,15 @@
  function getContinents() {
   $.ajax({
     url: '/continents',
-    dataType: 'json'
+    dataType: 'json',
+    cache: false
   }).success(function (data) {
     console.log('data', data);
     //debugger
 
   })
 }
+
 
 
 

@@ -7,7 +7,8 @@
  function getCountries() {
   $.ajax({
     url: '/countries',
-    dataType: 'json'
+    dataType: 'json',
+    cache: false
   }).success(function (data) {
     console.log('data', data);
     //debugger
