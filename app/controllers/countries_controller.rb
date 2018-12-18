@@ -6,7 +6,7 @@ class CountriesController < ApplicationController
     @countries = Country.all 
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @country, status: 200}
+      format.json { render json: @countries, status: 200}
     end
     
   end

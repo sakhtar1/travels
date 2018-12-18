@@ -119,7 +119,7 @@ $(function () {
 
 /*Object Orient JavaScript constructor function to build a 
 prototype for what an object (country) would look like, including all 
-the properties (id, country, and user). A renderDiv method is also added to 
+the properties (id and country). A renderDiv method is also added to 
 this object. */
 
 function Bucket(data){
@@ -133,7 +133,7 @@ Bucket.prototype.renderDiv = function(){
    console.log("this",this)
 
   let html = "";
-    html+= `<h5> 
+    html+= `<div> 
                 <label>
                   <input type=checkbox name=checkbox id=checkbox data-toggle=checkbox></input>
                   <del>
@@ -147,7 +147,7 @@ Bucket.prototype.renderDiv = function(){
                   <input data-confirm= "Are you sure you want to check off this country?" id=${this.id} data-method=delete type=submit value=TRAVELLED!>
                 </form>
               </div>      
-          </h5>`
+          </div>`
   $(".checkbox").append(html);
 
 }

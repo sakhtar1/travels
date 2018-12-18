@@ -86,10 +86,10 @@ code {
   font-size: 80%;
 }
 
-h5 del {
+div del {
 text-decoration: none;
 }
-h5 input[type=checkbox]:checked ~ del{
+div input[type=checkbox]:checked ~ del{
 text-decoration: line-through;
 
 }
