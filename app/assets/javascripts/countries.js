@@ -1,4 +1,4 @@
- 
+// listener
  $(() => {
   getCountries() 
 })
@@ -36,18 +36,21 @@ $(function(){
 // JS see more
 $(function(){
   $('.see_more').on('click', function(e) {
-    
+
     e.preventDefault();
     
     var id = $(this).data('id')
 
     $.get('/countries/' + id + '.json', function(datas){
+
     var data = datas["data"].attributes
 
      $("#cont-" + id).html("Cities Visited: " + "<strong>" + data["city"] + "</strong>");
+
     
     });
   })
+
 })
 
 
