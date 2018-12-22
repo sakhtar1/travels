@@ -23,8 +23,9 @@
           '<a href=/countries/'+country.id + '>' + country.name + '</strong>' +
           '<br><br></li>'
       )
-      .join('')}</strong></ol>`;
-    $('.country').html(dataList);
+      .join('')}</strong></ol>` ;
+    $('.country').html(dataList + `<h5><a href="/countries/new"> Log a New Country. </a></h5>
+      <h5> Go to <a href="/continents"> Continents. </a></h5>`) ;
     })
 
   }
