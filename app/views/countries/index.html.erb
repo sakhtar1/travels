@@ -8,20 +8,18 @@
 	<div>
 		<ol><% @user.countries.uniq.each do |country| %>
 			
-			<strong><li><%= link_to country.name, country %></li></strong>	
-			<a href="#" class="see_more" data-id="<%=country.id%>">(See More...)</a>
+			<strong><li><%= link_to country.name, country, id: country.id %></li></strong>	
+			<!-- <a href="#" class="see_more" data-id="<%=country.id%>">(See More...)</a>
 
 			<ul id="cont-<%= country.id%>"></ul>
 
 
-			<a href="#" class="see_less" onclick="see_less();" data-id="<%=country.id%>">(See Less...)</a>
+			<a href="#" class="see_less" onclick="see_less();" data-id="<%=country.id%>">(See Less...)</a> -->
 		<%end %></ol>
 	</div>
 
-	<br>
-	<br>
-	<h5>Log a New<a href="/countries/new"> Country. </a></h5>
-	<h5> Go to <a href="/continents"> Continents. </a></h5>
+<!-- 	<h5>Log a New<a href="/countries/new"> Country. </a></h5>
+	<h5> Go to <a href="/continents"> Continents. </a></h5> -->
 </div>
 
 

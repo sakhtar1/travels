@@ -15,7 +15,7 @@
 //= require_tree .
 
 
-
+//listeners
  $(() => {
   getContinents() 
   carousel();
@@ -34,7 +34,10 @@
   })
 }
 
+
+
 var slideIndex = 0;
+
 
 
 function carousel() {

@@ -13,6 +13,7 @@ function deleteBucket() {
     event.preventDefault()
     let action = this.action
     let id = event.target.id
+    //debugger
 
     $.ajax({
       type: 'delete',
@@ -30,6 +31,7 @@ function deleteBucket() {
 }
 
 
+
 //load countries via ajax
 
 function getBuckets() {
@@ -40,6 +42,7 @@ function getBuckets() {
   }).success(function (data) {
     console.log('data', data);
     //debugger
+
 
   })
 }
@@ -157,6 +160,7 @@ $(function(){
    
      e.preventDefault();
      e.stopPropagation();
+     debugger
 
      let $form = $(this);
      let action = $form.attr("action");

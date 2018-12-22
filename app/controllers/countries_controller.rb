@@ -18,7 +18,7 @@ class CountriesController < ApplicationController
     @visit.save
      
     #binding.pry
-      respond_to do |format|
+    respond_to do |format|
       format.html { render :show }
       format.json { render json: @country, status: 200}
     end
