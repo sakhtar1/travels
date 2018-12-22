@@ -6,7 +6,7 @@
 
 
 
-//load countries via ajax
+//load index page of countries via ajax
  function getCountries() {
   $.ajax({
     url: '/countries',
@@ -15,17 +15,17 @@
   }).success(function (datas) {
     console.log('datas', datas);
 
-   const countries = datas 
-   const dataList = `<ol><strong>${countries
-    .map(
-      country =>
-        '<li><strong>' +
-        '<a href=/countries/'+country.id + '>' + country.name + '</strong>' +
-        '</li>'
-    )
-    .join('')}</strong></ol>`;
-  $('.country').html(dataList);
-  })
+     const countries = datas 
+     const dataList = `<ol><strong>${countries
+      .map(
+        country =>
+          '<li><strong>' +
+          '<a href=/countries/'+country.id + '>' + country.name + '</strong>' +
+          '<br><br></li>'
+      )
+      .join('')}</strong></ol>`;
+    $('.country').html(dataList);
+    })
 
   }
 
@@ -50,25 +50,6 @@ $(function(){
 
 
 
-// JS see more
-// $(function(){
-//   $('.see_more').on('click', function(e) {
-
-//     e.preventDefault();
-    
-//     var id = $(this).data('id')
-
-//     $.get('/countries/' + id + '.json', function(datas){
-
-//     var data = datas["data"].attributes
-
-//      $("#cont-" + id).html("Cities Visited: " + "<strong>" + data["city"] + "</strong>");
-
-    
-//     });
-//   })
-
-// })
 
 
 

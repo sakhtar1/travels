@@ -9,6 +9,8 @@
 		<ol><% @user.countries.uniq.each do |country| %>
 			
 			<strong><li><%= link_to country.name, country, id: country.id %></li></strong>	
+			<br>
+			
 			<!-- <a href="#" class="see_more" data-id="<%=country.id%>">(See More...)</a>
 
 			<ul id="cont-<%= country.id%>"></ul>
