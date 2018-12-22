@@ -17,22 +17,10 @@
 
 //listeners
  $(() => {
-  getContinents() 
+
   carousel();
 })
 
-//load countries via ajax
- function getContinents() {
-  $.ajax({
-    url: '/continents',
-    dataType: 'json',
-    cache: false
-  }).success(function (data) {
-    console.log('data', data);
-    //debugger
-
-  })
-}
 
 
 

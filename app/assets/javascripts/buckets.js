@@ -2,7 +2,7 @@
 // listeners
  $(() => {
   deleteBucket()
-  getBuckets()
+
 })
 
 
@@ -31,21 +31,6 @@ function deleteBucket() {
 }
 
 
-
-//load countries via ajax
-
-function getBuckets() {
-  $.ajax({
-    url: '/buckets',
-    dataType: 'json',
-    cache: false
-  }).success(function (data) {
-    console.log('data', data);
-    //debugger
-
-
-  })
-}
 
   // reload page when delete is clicked
 
