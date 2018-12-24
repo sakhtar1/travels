@@ -22,6 +22,7 @@
           `<li><strong>
           <a href=/countries/${country.id}> ${country.name}</strong><ul><li>${country.visits.map( visit => visit.visit_places)}</ul></li><br><br></li>` 
       ).join(" ")}</strong></ol>` ;
+      
     $('.country').html(dataList + `<h5><a href="/countries/new"> Log a New Country. </a></h5>
       <h5> Go to <a href="/continents"> Continents. </a></h5>`) ;
     })
