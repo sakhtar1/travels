@@ -13,7 +13,7 @@ function deleteBucket() {
     event.preventDefault()
     let action = this.action
     let id = event.target.id
-    //debugger
+    debugger
 
     $.ajax({
       type: 'delete',
@@ -60,17 +60,16 @@ $(document).on("click", ".forward", function(e){
 $(function () {
   $(".next").on("click", function() {
     let nextId = parseInt($(".next").attr("data-id")) + 1;
-    $.get("/buckets/" + nextId + ".json", function(datas) {
-      let data = datas["data"];
-      let bucket = data["attributes"];
+    $.get("/buckets/" + nextId + ".json", function(bucket) {
+      //debugger
  
       $(".bucketCountry").text(bucket["country"]);
       $(".bucketContinent").text("Continent: " + bucket["continent"]);
       $(".bucketCity").text("Cities you want to visit: " + bucket["city"]);
       $(".bucketDescription").text("Description: " + bucket["description"]);
       // re-set the id to current on the link
-      $(".next").attr("data-id", data["id"]);
-      $(".previous").attr("data-id", data["id"])
+      $(".next").attr("data-id", bucket["id"]);
+      $(".previous").attr("data-id", bucket["id"])
     });
   });
 });
@@ -83,17 +82,16 @@ $(function () {
 $(function () {
   $(".previous").on("click", function() {
     let previousId = parseInt($(".previous").attr("data-id")) - 1;
-    $.get("/buckets/" + previousId + ".json", function(datas) {
-      let data = datas["data"]
-      let bucket = data["attributes"];
+    $.get("/buckets/" + previousId + ".json", function(bucket) {
+     
 
       $(".bucketCountry").text(bucket["country"]);
       $(".bucketContinent").text("Continent: " + bucket["continent"]);
       $(".bucketCity").text("Cities you want to visit: " + bucket["city"]);
       $(".bucketDescription").text("Description: " + bucket["description"]);
       // re-set the id to current on the link
-      $(".previous").attr("data-id", data["id"]);
-      $(".next").attr("data-id", data["id"]);
+      $(".previous").attr("data-id", bucket["id"]);
+      $(".next").attr("data-id", bucket["id"]);
       
 
     });
@@ -113,7 +111,7 @@ this object. */
 function Bucket(data){
   
   this.id = data.id;
-  this.country = data.attributes.country;
+  this.country = data.country;
 }
 
 
@@ -145,7 +143,7 @@ $(function(){
    
      e.preventDefault();
      e.stopPropagation();
-     debugger
+     
 
      let $form = $(this);
      let action = $form.attr("action");
@@ -158,9 +156,10 @@ $(function(){
       data: params,
       dataType: "json",
       method: "POST",
-    }).success(function(response){        
+    }).success(function(response){   
 
-        bucketCount = response["data"]
+
+        bucketCount = response
         $("#bucket_country").val("");
         let bucketNew = new Bucket(bucketCount);
 
