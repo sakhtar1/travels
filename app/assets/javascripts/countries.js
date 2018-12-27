@@ -21,7 +21,7 @@
       .map(
         country =>
           `<li><strong>
-          <a href=/countries/${country.id}> ${country.name}</strong><ul><li>${country.visits.map( visit => visit.visit_places)}</ul></li><br></li>` 
+          <a href=/countries/${country.id}> ${country.name}</strong><ul><li>Sites Visited: ${country.visits.map( visit => visit.visit_places)}</ul></li><br></li>` 
       ).join(" ")}</strong></ol>` ;
 
     $('.country').html(dataList + `<h5><a href="/countries/new"> Log a New Country. </a></h5>

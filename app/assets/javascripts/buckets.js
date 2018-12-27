@@ -1,7 +1,7 @@
  
 // listeners
  $(() => {
-  deleteBucket()
+  //deleteBucket()
  // getBuckets()
 
 })
@@ -10,36 +10,36 @@
 
  //delete bucket
 
-function deleteBucket() {
-  $('form.button_to').on('click', function (event) {
-    event.preventDefault()
-    let action = this.action
-    let id = event.target.id
-    debugger
+// function deleteBucket() {
+//   $('form.button_to').on('click', function (event) {
+//     event.preventDefault()
+//     let action = this.action
+//     let id = event.target.id
+//     //debugger
 
-    $.ajax({
-      type: 'delete',
-      url: action,
-      cache: false,
-      data: { bucket: { id: id } },
-      dataType: 'json',
-    }).success(function (response) {
-      console.log("response: ", response);
+//     $.ajax({
+//       type: 'delete',
+//       url: action,
+//       cache: false,
+//       data: { bucket: { id: id } },
+//       dataType: 'json',
+//     }).success(function (response) {
+//       console.log("response: ", response);
 
-    }).error(error => {
-      console.log(error);
-    })
-  })
-}
+//     }).error(error => {
+//       console.log(error);
+//     })
+//   })
+// }
 
 
 
   // reload page when delete is clicked
 
-$(document).on("click", "form.button_to", function(e){
-  location.reload();
-    e.preventDefault()
-  })
+// $(document).on("click", "form.button_to", function(e){
+//   location.reload();
+//     e.preventDefault()
+//   })
 
   // navigate to previous page when 'back' link clicked
   
