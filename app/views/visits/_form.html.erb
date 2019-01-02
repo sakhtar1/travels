@@ -1,6 +1,8 @@
 
 <%=  form_for([@country, @visit]) do |f| %>
-	
+
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :country_id, :value => @country.id %>
 	<%= f.label :'Additional places visited:' %>
 	  <br>
 	 <%= f.text_area :visit_places%>

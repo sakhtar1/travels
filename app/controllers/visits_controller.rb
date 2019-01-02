@@ -13,6 +13,17 @@ class VisitsController < ApplicationController
       end
   end 
 
+  def create
+    #binding.pry
+    @visit = Visit.new(visit_params)
+    if @visit.save
+      redirect_to country_path(@visit.country), notice: 'Successfully created.' 
+    else
+      #binding.pry
+      render :country_path
+    end
+
+  end
 
   def edit
     @visit = Visit.find(params[:id])
@@ -44,6 +55,8 @@ class VisitsController < ApplicationController
 
     def visit_params
       params.require(:visit).permit(
+        :user_id,
+        :country_id,
         :visit_date,
         :visit_places
         )

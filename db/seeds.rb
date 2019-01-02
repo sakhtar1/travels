@@ -16,7 +16,7 @@
 #Country.destroy_all
 #Visit.destroy_all
 #Continent.destroy_all
-user = User.create(:name => 'Sharmina', :email => 'bilkis@b.com', :password => 'bilkis') 
+user = User.create(:name => 'Sharmina Akh', :email => 'sakht318@gmail', :password => 'flower') 
 germany = Country.create(:name => 'Germany', continent: 'Europe', city: 'Berlin', description: 'Berlin Wall')
 
 user.visits.create(:visit_date => 'September', :visit_places => 'Museum', :country => germany)

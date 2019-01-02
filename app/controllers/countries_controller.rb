@@ -15,7 +15,7 @@ class CountriesController < ApplicationController
     @country = Country.find_by(id: params[:id])
     @next_country = @country.next
     @visit = @country.visits.build
-    @visit.save
+    #@visit.save
      
     #binding.pry
     respond_to do |format|
@@ -50,6 +50,7 @@ class CountriesController < ApplicationController
   end
 
   def update
+    binding.pry
      @country.update(country_params)
      if @country.save
         redirect_to @country, notice: 'Country was successfully updated.' 
