@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_171339) do
     t.text "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer "user_id", default: 1
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_171339) do
 
   create_table "visits", force: :cascade do |t|
     t.integer "country_id"
-    t.integer "user_id", default: 1
+    t.integer "user_id"
     t.datetime "visit_date"
     t.datetime "created_at"
     t.datetime "updated_at"

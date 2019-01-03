@@ -1,45 +1,4 @@
  
-// listeners
- $(() => {
-  //deleteBucket()
- // getBuckets()
-
-})
-
-
-
- //delete bucket
-
-// function deleteBucket() {
-//   $('form.button_to').on('click', function (event) {
-//     event.preventDefault()
-//     let action = this.action
-//     let id = event.target.id
-//     //debugger
-
-//     $.ajax({
-//       type: 'delete',
-//       url: action,
-//       cache: false,
-//       data: { bucket: { id: id } },
-//       dataType: 'json',
-//     }).success(function (response) {
-//       console.log("response: ", response);
-
-//     }).error(error => {
-//       console.log(error);
-//     })
-//   })
-// }
-
-
-
-  // reload page when delete is clicked
-
-// $(document).on("click", "form.button_to", function(e){
-//   location.reload();
-//     e.preventDefault()
-//   })
 
   // navigate to previous page when 'back' link clicked
   
@@ -175,40 +134,49 @@ $(function(){
 })
 
 
-// get buckets index page
+// listeners
+ $(() => {
+  //deleteBucket()
+ // getBuckets()
 
-// function getBuckets() {
-//   $.ajax({
-//     url: '/buckets',
-//     dataType: 'json',
-//     cache: false
-//   }).success(function (datas) {
-//     console.log('datas', datas);
+})
 
-//      const buckets = datas 
-//      const dataList = `${buckets
-//       .map(
-//         bucket =>
-//           `<div><label>
-//                   <input type=checkbox name=checkbox id=checkbox data-toggle=checkbox></input>
-//                   <del>
-//                     <strong name =check_count class=check_count id= check_count> 
-//           <a href=/buckets/${bucket.id}> ${bucket.country}</strong></del>
-//                 </label>
-//               <div id=del_ete>
-//                 <form class=button_to data-method=delete href=buckets/${this.id}>
-//                   <input type=hidden name=_method value=delete>
-//                   <input data-confirm= "Are you sure you want to check off this country?" id=${this.id} data-method=delete type=submit value=TRAVELLED!>
-//                 </form>
-//               </div>      
-//           </div><br>` 
-//       ).join(" ")}` ;
-      
-//     $('.checkbox').html(dataList) ;
+
+
+ //delete bucket
+
+// function deleteBucket() {
+//   $('form.button_to').on('click', function (event) {
+//     event.preventDefault()
+//     let action = this.action
+//     let id = event.target.id
+//     //debugger
+
+//     $.ajax({
+//       type: 'delete',
+//       url: action,
+//       cache: false,
+//       data: { bucket: { id: id } },
+//       dataType: 'json',
+//     }).success(function (response) {
+//       console.log("response: ", response);
+
+//     }).error(error => {
+//       console.log(error);
 //     })
-   
+//   })
+// }
 
-//   }
+
+
+  // reload page when delete is clicked
+
+// $(document).on("click", "form.button_to", function(e){
+//   location.reload();
+//     e.preventDefault()
+//   })
+
+
 
 
 

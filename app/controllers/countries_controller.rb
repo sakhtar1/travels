@@ -14,7 +14,9 @@ class CountriesController < ApplicationController
   def show
     @country = Country.find_by(id: params[:id])
     @next_country = @country.next
+    #binding.pry
     @visit = @country.visits.build
+    noEmptyVisits = @visit.delete { |c| c.empty? }
     #@visit.save
      
     #binding.pry
@@ -32,13 +34,14 @@ class CountriesController < ApplicationController
 
   def new
       @country = Country.new 
+      #binding.pry
   end
 
   def create
     @country = current_user.countries.build(country_params) 
       if @country.save
         current_user.countries << @country
-    
+    #binding.pry
         redirect_to @country, notice: 'Country was successfully created.' 
       else
         render :new
@@ -50,7 +53,7 @@ class CountriesController < ApplicationController
   end
 
   def update
-    binding.pry
+    #binding.pry
      @country.update(country_params)
      if @country.save
         redirect_to @country, notice: 'Country was successfully updated.' 
@@ -72,6 +75,7 @@ class CountriesController < ApplicationController
 
     def country_params
       params.require(:country).permit(
+        :user_id,
         :continent,
         :name,
         :city,
