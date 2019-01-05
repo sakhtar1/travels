@@ -40,8 +40,8 @@ class CountriesController < ApplicationController
   def create
     @country = current_user.countries.build(country_params) 
       if @country.save
-        current_user.countries << @country
-    #binding.pry
+        #current_user.countries << @country
+    binding.pry
         redirect_to @country, notice: 'Country was successfully created.' 
       else
         render :new
