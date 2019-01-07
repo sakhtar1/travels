@@ -15,15 +15,12 @@ $(document).on("click", ".forward", function(e){
   })
 
 
-
 // Clicking next on show page to view next country
 
 $(function () {
   $(".next").on("click", function() {
     let nextId = parseInt($(".next").attr("data-id")) + 1;
     $.get("/buckets/" + nextId + ".json", function(bucket) {
-      //debugger
- 
       $(".bucketCountry").text(bucket["country"]);
       $(".bucketContinent").text("Continent: " + bucket["continent"]);
       $(".bucketCity").text("Cities you want to visit: " + bucket["city"]);
@@ -36,16 +33,12 @@ $(function () {
 });
 
 
-
-
   // Clicking previous on show page to view previous country
 
 $(function () {
   $(".previous").on("click", function() {
     let previousId = parseInt($(".previous").attr("data-id")) - 1;
     $.get("/buckets/" + previousId + ".json", function(bucket) {
-     
-
       $(".bucketCountry").text(bucket["country"]);
       $(".bucketContinent").text("Continent: " + bucket["continent"]);
       $(".bucketCity").text("Cities you want to visit: " + bucket["city"]);
@@ -60,21 +53,17 @@ $(function () {
 });
 
 
-
-
-
-
 /*Object Orient JavaScript constructor function to build a 
 prototype for what an object (country) would look like, including all 
 the properties (id and country). A renderDiv method is also added to 
 this object. */
 
-function Bucket(data){
-  
-  this.id = data.id;
-  this.country = data.country;
+class Bucket {
+    constructor(data) {
+        this.id = data.id
+        this.country = data.country
+    }
 }
-
 
 Bucket.prototype.renderDiv = function(){
    console.log("this",this)
@@ -132,55 +121,5 @@ $(function(){
      
   })
 })
-
-
-// listeners
- $(() => {
-  //deleteBucket()
- // getBuckets()
-
-})
-
-
-
- //delete bucket
-
-// function deleteBucket() {
-//   $('form.button_to').on('click', function (event) {
-//     event.preventDefault()
-//     let action = this.action
-//     let id = event.target.id
-//     //debugger
-
-//     $.ajax({
-//       type: 'delete',
-//       url: action,
-//       cache: false,
-//       data: { bucket: { id: id } },
-//       dataType: 'json',
-//     }).success(function (response) {
-//       console.log("response: ", response);
-
-//     }).error(error => {
-//       console.log(error);
-//     })
-//   })
-// }
-
-
-
-  // reload page when delete is clicked
-
-// $(document).on("click", "form.button_to", function(e){
-//   location.reload();
-//     e.preventDefault()
-//   })
-
-
-
-
-
-
-
 
 

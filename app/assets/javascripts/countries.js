@@ -5,8 +5,6 @@
 
 })
 
-
-
 //load index page of countries via ajax
  function getCountries() {
   $.ajax({
@@ -27,12 +25,7 @@
     $('.country').html(dataList + `<h5><a href="/countries/new"> Log a New Country. </a></h5>
       <h5> Go to <a href="/continents"> Continents. </a></h5>`) ;
     })
-   
-
   }
-
-
-
 
 // Navigate to previous page when 'back' link clicked
   
