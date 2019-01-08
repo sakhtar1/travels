@@ -4,6 +4,7 @@ class CountriesController < ApplicationController
   def index   
     @user = current_user
     @countries = Country.all 
+    
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @countries, status: 200}
@@ -14,17 +15,13 @@ class CountriesController < ApplicationController
   def show
     @country = Country.find_by(id: params[:id])
     @next_country = @country.next
-    #binding.pry
     @visit = @country.visits.build
-    noEmptyVisits = @visit.delete { |c| c.empty? }
-    #@visit.save
-     
-    #binding.pry
+   
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @country, status: 200}
     end
-    #binding.pry
+    
   end
 
   def continent_order
@@ -34,14 +31,12 @@ class CountriesController < ApplicationController
 
   def new
       @country = Country.new 
-      #binding.pry
+      
   end
 
   def create
     @country = current_user.countries.build(country_params) 
       if @country.save
-        #current_user.countries << @country
-    binding.pry
         redirect_to @country, notice: 'Country was successfully created.' 
       else
         render :new
@@ -53,7 +48,6 @@ class CountriesController < ApplicationController
   end
 
   def update
-    #binding.pry
      @country.update(country_params)
      if @country.save
         redirect_to @country, notice: 'Country was successfully updated.' 

@@ -2,7 +2,6 @@
 // listeners
  $(() => {
   getCountries()
-
 })
 
 //load index page of countries via ajax
@@ -15,7 +14,8 @@
     console.log('datas', datas);
 
      const countries = datas 
-     const dataList = `<ol><strong>${countries
+     debugger
+     let dataList = `<ol><strong>${countries
       .map(
         country =>
           `<h4><li><strong>
@@ -26,6 +26,7 @@
       <h5> Go to <a href="/continents"> Continents. </a></h5>`) ;
     })
   }
+
 
 // Navigate to previous page when 'back' link clicked
   
@@ -42,6 +43,7 @@ $(function(){
     e.preventDefault();
   })
 });
+
 
 
 

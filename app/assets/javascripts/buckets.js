@@ -97,6 +97,8 @@ $(function(){
 
      let $form = $(this);
      let action = $form.attr("action");
+    
+
      // converting form from object to string
      let params = $form.serialize();
 

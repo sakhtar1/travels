@@ -3,6 +3,9 @@
 <p>Area Visited: <%= @visit.visit_places %></p>
 <p>Date: <%= @visit.visit_date.strftime("%m/%d/%Y") %></p>
 
-<p><a href="/countries"> Countries </a></p>
-<p><%= link_to "Back", @country %></p>
+  <%= button_to "Delete", country_visit_path, :method => :delete, :class => "destroy" %>
+<br>
+<br>
+<button><a href="/countries"> Countries </a></button>
+<button><%= link_to "Back", @country %></button>
 

@@ -1,25 +1,24 @@
 class VisitsController < ApplicationController
  
   
-  def show
-      #binding.pry
+  def show   
       @visit = Visit.find(params[:id])
-      user = current_user
+     user = current_user
       @visit.user_id = user.id
       @country = Country.find_by(id: params[:country_id])
       respond_to do |format|
         format.html { render :show }
-        format.json { redirect_to country_path(@visit.country) }
+        format.json { redirect_to country_visit_path}
       end
   end 
 
   def create
-    #binding.pry
+    
     @visit = Visit.new(visit_params)
     if @visit.save
       redirect_to country_path(@visit.country), notice: 'Successfully created.' 
     else
-      #binding.pry
+      
       render :country_path
     end
 
@@ -27,11 +26,11 @@ class VisitsController < ApplicationController
 
   def edit
     @visit = Visit.find(params[:id])
-    #binding.pry
+    
   end
 
   def update
-    #binding.pry
+    
     @visit = Visit.find(params[:id])
     @visit.update(visit_params)
     redirect_to country_path(@visit.country), notice: 'Successfully created.'
