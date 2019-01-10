@@ -1,18 +1,3 @@
- 
-
-  // navigate to previous page when 'back' link clicked
-  
-$(document).on("click", ".back", function(e){
-    parent.history.back()
-    e.preventDefault()
-  })
-
-  // navigate to previous page when 'back' link clicked
-
-$(document).on("click", ".forward", function(e){
-    parent.history.forward()
-    e.preventDefault()
-  })
 
 
 // Clicking next on show page to view next country
@@ -97,7 +82,7 @@ $(function(){
 
      let $form = $(this);
      let action = $form.attr("action");
-    
+
 
      // converting form from object to string
      let params = $form.serialize();
@@ -123,5 +108,20 @@ $(function(){
      
   })
 })
+
+  // navigate to previous page when 'back' link clicked
+  
+$(document).on("click", ".back", function(e){
+    parent.history.back()
+    e.preventDefault()
+  })
+
+  // navigate to previous page when 'back' link clicked
+
+$(document).on("click", ".forward", function(e){
+    parent.history.forward()
+    e.preventDefault()
+  })
+
 
 
