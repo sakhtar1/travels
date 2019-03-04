@@ -6,7 +6,7 @@ ruby '2.4.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+gem 'sqlite3'
 #gem 'pg', '~> 1.1.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -62,17 +62,11 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-group :production do
-  gem 'pg', '~> 1.1.4'
-end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
-#gem 'omniauth-twitter'
-#gem 'omniauth-facebook'
-#gem 'omniauth-amazon'
-#gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'pry'
